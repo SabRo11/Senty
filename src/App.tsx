@@ -10,28 +10,33 @@ const clients = [
 const moments = [
   {
     label: 'Raccogli',
-    title: 'Tutto parte da ciò che le persone dicono.',
-    copy: 'Recensioni, commenti, feedback e reazioni arrivano da fonti diverse. Senty li riunisce in un unico spazio, mantenendo il contesto e riducendo la frammentazione.',
+    title: 'Ogni voce entra nello stesso flusso.',
+    copy: 'Recensioni, commenti, survey e feedback confluiscono in un unico spazio, mantenendo fonte e contesto.',
   },
   {
     label: 'Analizza',
-    title: 'L’AI mette ordine nel rumore.',
-    copy: 'Senty organizza grandi volumi di segnali, identifica pattern, classifica i contenuti e legge il sentiment in modo rapido e coerente.',
+    title: 'L’AI trasforma il rumore in segnali.',
+    copy: 'Senty classifica grandi volumi di contenuti, legge il sentiment e fa emergere pattern in modo rapido e coerente.',
   },
   {
     label: 'Comprendi',
-    title: 'I dati diventano leggibili.',
-    copy: 'Trend, categorie, rating e temi emergenti diventano leggibili a colpo d’occhio. Senty permette anche di confrontare il sentiment del tuo brand con quello dei competitor.',
+    title: 'Capisci subito cosa muove il sentiment.',
+    copy: 'Temi, driver, rating e segnali emergenti diventano leggibili a colpo d’occhio, senza perdersi tra decine di grafici.',
+  },
+  {
+    label: 'Confronta',
+    title: 'Leggi il dato nel tempo. E rispetto agli altri.',
+    copy: 'Confronta periodi, trend e performance del tuo brand con i competitor per dare ai numeri un contesto reale.',
   },
   {
     label: 'Restituisci',
-    title: 'Gli insight tornano ai team in modo chiaro.',
-    copy: 'Insight sintetici, priorità e feedback concreti aiutano i team a capire cosa sta cambiando, perché sta succedendo e dove conviene intervenire.',
+    title: 'Dall’insight alla prossima decisione.',
+    copy: 'Senty sintetizza ciò che conta in priorità e indicazioni chiare, pronte da condividere con i team che devono agire.',
   },
 ]
 
-const phonePhoto = 'https://images.unsplash.com/photo-1777256005646-289df314bd3b?auto=format&fit=crop&fm=jpg&q=82&w=1800'
-const teamPhoto = 'https://images.unsplash.com/photo-1758873268745-dd2cf0d677b5?auto=format&fit=crop&fm=jpg&q=82&w=1800'
+const phonePhoto = 'https://images.unsplash.com/photo-1777256005646-289df314bd3b?auto=format&fit=crop&fm=jpg&q=84&w=1800'
+const teamPhoto = 'https://images.unsplash.com/photo-1758873268745-dd2cf0d677b5?auto=format&fit=crop&fm=jpg&q=84&w=1800'
 
 function DemoForm({ compact = false }: { compact?: boolean }) {
   const id = compact ? 'footer-email' : 'hero-email'
@@ -74,65 +79,71 @@ function ClientStrip() {
   )
 }
 
-function ReviewScene({ offset }: { offset: number }) {
+function CollectScene({ offset }: { offset: number }) {
   return (
-    <div className="scene scene-photo" style={{ backgroundImage: `linear-gradient(180deg, rgba(13,16,58,.02), rgba(13,16,58,.18)), url(${phonePhoto})` }}>
-      <div className="scene-glow" style={{ transform: `translate3d(${offset * 8}px, ${offset * -14}px, 0)` }} />
-      <div className="review-stack" style={{ transform: `translate3d(0, ${offset * -18}px, 0)` }}>
-        <article className="review-card review-card-main">
-          <span className="review-source">Recensione · oggi</span>
-          <div className="review-stars">★★★★★</div>
-          <strong>“Molto più semplice da usare.”</strong>
-          <p>Checkout chiaro, esperienza fluida e informazioni facili da trovare.</p>
-        </article>
-        <article className="review-card review-card-ghost review-card-a">Commento social</article>
-        <article className="review-card review-card-ghost review-card-b">Survey</article>
-      </div>
+    <div className="scene collect-scene" style={{ backgroundImage: `url(${phonePhoto})` }}>
+      <article className="signal-card" style={{ transform: `translate3d(0, ${offset * -14}px, 0)` }}>
+        <div className="signal-card__top"><span>Segnali raccolti oggi</span><strong>12.480</strong></div>
+        <div className="signal-sources">
+          <div className="signal-source"><b>Recensioni</b><small>4.830 segnali</small></div>
+          <div className="signal-source"><b>Social</b><small>3.940 segnali</small></div>
+          <div className="signal-source"><b>Survey</b><small>2.140 segnali</small></div>
+          <div className="signal-source"><b>Customer care</b><small>1.570 segnali</small></div>
+        </div>
+        <div className="signal-card__foot">Fonte e contesto restano collegati a ogni feedback.</div>
+      </article>
     </div>
   )
 }
 
 function AnalyzeScene({ offset }: { offset: number }) {
   return (
-    <div className="scene scene-ui analyze-scene">
-      <div className="collector-orbit" style={{ transform: `translate3d(0, ${offset * -12}px, 0)` }}>
-        <span className="collector-chip chip-a">★ Recensioni</span>
-        <span className="collector-chip chip-b">● Commenti</span>
-        <span className="collector-chip chip-c">↗ Social</span>
-        <span className="collector-chip chip-d">? Survey</span>
-      </div>
-      <div className="collector-core" style={{ transform: `translate3d(0, ${offset * 8}px, 0)` }}>
-        <img src="/senty-logo.svg" alt="" />
-        <span>Analisi automatica</span>
-        <div className="collector-tags"><b>Sentiment</b><b>Categoria</b><b>Rating</b><b>Fonte</b></div>
-      </div>
-      <div className="collector-flow" aria-hidden="true"><i /><i /><i /></div>
+    <div className="scene analyze-scene-v06">
+      <article className="sentiment-card" style={{ transform: `translate3d(0, ${offset * -10}px, 0)` }}>
+        <div className="sentiment-card__head"><span>Sentiment analysis</span><b>Ultimi 30 giorni</b></div>
+        <div className="sentiment-card__body">
+          <div className="sentiment-ring"><div><strong>72%</strong><span>positivo</span></div></div>
+          <div className="sentiment-summary">
+            <div><strong>+8,4%</strong><span>vs periodo precedente</span></div>
+            <div><strong>14%</strong><span>feedback negativo</span></div>
+            <small>12.480 feedback analizzati automaticamente</small>
+          </div>
+        </div>
+      </article>
     </div>
   )
 }
 
 function UnderstandScene({ offset }: { offset: number }) {
   return (
-    <div className="scene scene-ui understand-scene">
-      <div className="analytics-grid" style={{ transform: `translate3d(0, ${offset * -10}px, 0)` }}>
-        <article className="analytics-card score-card">
-          <span>Sentiment analysis</span>
-          <div className="mini-donut"><strong>68</strong></div>
-          <div className="sentiment-legend"><b>62% Positivo</b><b>24% Neutro</b><b>14% Negativo</b></div>
-        </article>
-        <article className="analytics-card trend-card">
-          <span>Average rating overtime</span>
-          <svg viewBox="0 0 360 130" role="img" aria-label="Trend illustrativo del rating">
-            <path d="M0 96 C28 72 42 88 70 56 S116 84 145 48 S194 70 220 41 S267 72 292 45 S333 56 360 28" />
-          </svg>
-          <div className="trend-axis"><i>Set. 1</i><i>Set. 2</i><i>Set. 3</i><i>Ora</i></div>
-        </article>
-      </div>
-      <article className="compare-card" style={{ transform: `translate3d(0, ${offset * 14}px, 0)` }}>
-        <div className="compare-head"><span>Brand comparison</span><b>Company vs Competitor</b></div>
-        <div className="compare-row"><span>Esperienza</span><i><em style={{ width: '82%' }} /><em className="competitor" style={{ width: '61%' }} /></i><b>+21</b></div>
-        <div className="compare-row"><span>Pricing</span><i><em style={{ width: '48%' }} /><em className="competitor" style={{ width: '66%' }} /></i><b>-18</b></div>
-        <div className="compare-row"><span>Service</span><i><em style={{ width: '74%' }} /><em className="competitor" style={{ width: '60%' }} /></i><b>+14</b></div>
+    <div className="scene understand-scene-v06">
+      <article className="driver-card" style={{ transform: `translate3d(0, ${offset * -10}px, 0)` }}>
+        <div className="driver-card__head"><span>Driver del sentiment</span><b>AI clustering</b></div>
+        <div className="driver-focus"><div><span>Driver più rilevante</span><strong>Service</strong></div><b>+24</b></div>
+        <div className="driver-chart">
+          <div className="driver-row"><span>Service</span><i><em style={{ width: '88%' }} /></i><b>+24</b></div>
+          <div className="driver-row"><span>Esperienza</span><i><em style={{ width: '72%' }} /></i><b>+17</b></div>
+          <div className="driver-row"><span>Prodotto</span><i><em style={{ width: '58%' }} /></i><b>+11</b></div>
+          <div className="driver-row is-negative"><span>Pricing</span><i><em style={{ width: '46%' }} /></i><b>-9</b></div>
+        </div>
+      </article>
+    </div>
+  )
+}
+
+function CompareScene({ offset }: { offset: number }) {
+  return (
+    <div className="scene compare-scene-v06">
+      <article className="compare-dashboard" style={{ transform: `translate3d(0, ${offset * -10}px, 0)` }}>
+        <div className="compare-dashboard__head"><span>Brand comparison</span><b>12 mesi</b></div>
+        <div className="compare-legend"><span><i />Il tuo brand</span><span><i />Competitor</span></div>
+        <svg className="compare-chart" viewBox="0 0 560 240" role="img" aria-label="Confronto illustrativo del sentiment nel tempo tra brand e competitor">
+          <path className="grid" d="M10 50 H550 M10 110 H550 M10 170 H550 M10 230 H550" />
+          <path className="brand-line" d="M12 182 C70 170 80 126 132 138 S212 176 266 106 S350 76 398 88 S470 54 548 42" />
+          <path className="competitor-line" d="M12 150 C68 142 96 154 138 130 S220 108 268 126 S345 142 402 116 S484 108 548 94" />
+        </svg>
+        <div className="compare-axis"><span>Ott</span><span>Gen</span><span>Apr</span><span>Lug</span><span>Oggi</span></div>
+        <div className="compare-callout">+12 pt sopra benchmark</div>
       </article>
     </div>
   )
@@ -140,15 +151,14 @@ function UnderstandScene({ offset }: { offset: number }) {
 
 function ReturnScene({ offset }: { offset: number }) {
   return (
-    <div className="scene scene-photo return-scene" style={{ backgroundImage: `linear-gradient(180deg, rgba(13,16,58,.02), rgba(13,16,58,.28)), url(${teamPhoto})` }}>
-      <div className="action-stack" style={{ transform: `translate3d(0, ${offset * -16}px, 0)` }}>
+    <div className="scene return-scene-v06" style={{ backgroundImage: `url(${teamPhoto})` }}>
+      <div className="action-stack" style={{ transform: `translate3d(0, ${offset * -14}px, 0)` }}>
         <article className="ai-action-card">
           <span className="ai-badge">✦ Senty AI</span>
-          <strong>Il prezzo è il principale driver negativo.</strong>
-          <p>La percezione del valore è sotto benchmark rispetto ai competitor. Priorità: chiarezza dell’offerta e comunicazione del beneficio.</p>
-          <div className="action-tags"><span>Priorità alta</span><span>Confronto competitor</span></div>
+          <strong>Il prezzo è il principale driver negativo nel segmento nuovi clienti.</strong>
+          <p>La percezione del valore è sotto benchmark. Priorità suggerita: rendere più chiaro il beneficio dell’offerta nei primi touchpoint.</p>
+          <div className="action-tags"><span>Priorità alta</span><span>Nuovi clienti</span><span>Pricing</span></div>
         </article>
-        <article className="action-mini-card">Insight pronto da condividere <b>↗</b></article>
       </div>
     </div>
   )
@@ -157,10 +167,11 @@ function ReturnScene({ offset }: { offset: number }) {
 function MomentVisual({ active, offset = 0 }: { active: number; offset?: number }) {
   return (
     <div className="moment-canvas" aria-live="polite">
-      <div className={active === 0 ? 'moment-panel is-active' : 'moment-panel'}><ReviewScene offset={offset} /></div>
+      <div className={active === 0 ? 'moment-panel is-active' : 'moment-panel'}><CollectScene offset={offset} /></div>
       <div className={active === 1 ? 'moment-panel is-active' : 'moment-panel'}><AnalyzeScene offset={offset} /></div>
       <div className={active === 2 ? 'moment-panel is-active' : 'moment-panel'}><UnderstandScene offset={offset} /></div>
-      <div className={active === 3 ? 'moment-panel is-active' : 'moment-panel'}><ReturnScene offset={offset} /></div>
+      <div className={active === 3 ? 'moment-panel is-active' : 'moment-panel'}><CompareScene offset={offset} /></div>
+      <div className={active === 4 ? 'moment-panel is-active' : 'moment-panel'}><ReturnScene offset={offset} /></div>
     </div>
   )
 }
@@ -239,7 +250,7 @@ export default function App() {
   const active = moments[activeMoment]
 
   return (
-    <div className="site-shell v05-shell">
+    <div className="site-shell v05-shell v06-shell">
       <header className={showNav ? 'floating-nav is-visible' : 'floating-nav'}>
         <a className="floating-brand" href="#top" aria-label="Senty home"><img src="/senty-logo.svg" alt="Senty" /></a>
         <nav aria-label="Navigazione principale">
@@ -247,11 +258,11 @@ export default function App() {
           <a href="#insight">Insight</a>
           <a href="#features">Funzionalità</a>
         </nav>
-        <a className="floating-cta" href="#demo">Demo</a>
+        <a className="floating-cta" href="#demo">Richiedi una demo</a>
       </header>
 
       <main>
-        <section className="hero v05-hero" id="hero" aria-labelledby="hero-title">
+        <section className="hero v05-hero v06-hero" id="hero" aria-labelledby="hero-title">
           <div className="hero-brand-lockup" id="top">
             <img src="/senty-logo.svg" alt="Senty" />
             <span>Powered by Havas</span>
@@ -269,9 +280,7 @@ export default function App() {
 
         <section className="story-section method-section" id="method" aria-labelledby="story-title">
           <div className="section-intro method-intro">
-            <p className="eyebrow">Metodo</p>
-            <h2 id="story-title">Dal feedback all’azione, senza perdere il contesto.</h2>
-            <p>Senty accompagna ogni segnale lungo un percorso semplice: raccoglie, analizza, rende comprensibile e restituisce ciò che serve per decidere.</p>
+            <h2 id="story-title">Ascolta tutto. Capisci cosa conta.</h2>
           </div>
 
           <div className="method-scroll">
@@ -280,12 +289,11 @@ export default function App() {
                 <div className="method-labels" aria-label="Fasi del metodo Senty">
                   {moments.map((moment, index) => (
                     <div className={activeMoment === index ? 'method-label is-active' : 'method-label'} key={moment.label}>
-                      <span>0{index + 1}</span>{moment.label}
+                      {moment.label}
                     </div>
                   ))}
                 </div>
                 <div className="method-description" key={active.label}>
-                  <span className="method-current">0{activeMoment + 1} / 04</span>
                   <h3>{active.title}</h3>
                   <p>{active.copy}</p>
                 </div>
@@ -300,7 +308,7 @@ export default function App() {
           <div className="method-mobile">
             {moments.map((moment, index) => (
               <article className="method-mobile-step" key={moment.label}>
-                <span>0{index + 1} / {moment.label}</span>
+                <span>{moment.label}</span>
                 <h3>{moment.title}</h3>
                 <p>{moment.copy}</p>
                 <div className="method-mobile-visual"><MomentVisual active={index} /></div>
@@ -351,7 +359,7 @@ export default function App() {
           <div className="footer-brand"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div>
           <div className="footer-cta"><h2>Vuoi capire meglio ciò che le persone sentono?</h2><DemoForm compact /></div>
         </div>
-        <div className="footer-bottom"><span>SENTY-LP v0.5.0</span><span>Sentiment intelligence, resa semplice.</span></div>
+        <div className="footer-bottom"><span>SENTY-LP v0.6.0</span><span>Sentiment intelligence, resa semplice.</span></div>
       </footer>
     </div>
   )
