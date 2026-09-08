@@ -1,32 +1,35 @@
 # SENTY-LP — Iterazioni
 
-## v0.3.0 — Narrative architecture prototype
+## v0.4.0 — UI system refinement
 
 ### Obiettivo
-Passare da una landing SaaS tradizionale a una struttura più editoriale e progressiva, in cui il prodotto viene capito durante lo scroll.
+Consolidare la struttura narrativa della v0.3.0 e correggere le deviazioni rispetto all'identità reale di Senty.
 
-### Architettura
-- hero solo testuale + form demo;
-- menu assente al primo atterraggio e floating navigation dopo la hero;
-- client trust loop subito dopo il visore;
-- storytelling sticky in 4 momenti: Ascolta / Riunisci / Comprendi / Attiva;
-- alternanza fotografia + UI/infografica;
-- nuovo modulo intermedio di business value per rispondere al “so what”;
-- capability grid di sintesi;
-- footer con seconda CTA.
+### Decisioni validate
+- nav: Metodo / Insight / Funzionalità / Demo;
+- partner line: “Scelto da brand che ascoltano davvero le persone.”;
+- key moments: Raccogli / Analizza / Comprendi / Restituisci;
+- competitor comparison integrata nel momento Comprendi;
+- modulo Insight mantenuto e reso dinamico.
+
+### UI
+- scala tipografica ridotta;
+- hero più compatta;
+- Blue Orchid e navy riallineati alle guideline;
+- logo Senty con solo “Powered by Havas” sotto;
+- radius più generosi e forme meno squadrate;
+- capability grid finale più morbida e meno tabellare.
 
 ### Motion
-- apparizione del floating header al superamento della hero;
-- sticky visual storytelling con cambio stato guidato dallo scroll;
-- crossfade e match-cut tra visual;
-- micro-motion sui segnali e sui grafici;
-- rispetto di `prefers-reduced-motion`.
+- sticky/parallax per i quattro key moments;
+- layer fotografici e UI con profondità differenziata;
+- modulo Insight scroll-driven con micro-viz progressive;
+- menu reveal invariato dopo la hero;
+- partner marquee lento e continuo.
 
-### Art direction temporanea
-Le fotografie lifestyle sono asset Unsplash temporanei per testare il mix fotografia/UI. Prima della release vanno sostituite con asset proprietari o definitivi coerenti con l'identità Senty.
+## v0.3.0 — Narrative architecture prototype
 
-### Nota sui partner
-Ridimensionamento ottico del logo Dior rispetto agli altri marchi per evitare sovrappeso visivo nel marquee.
+Hero solo testuale, floating navigation, storytelling sticky in quattro momenti, modulo di business value e capability grid.
 
 ## v0.2.0 — Client trust loop
 

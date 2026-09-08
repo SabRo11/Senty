@@ -2,45 +2,49 @@
 
 Landing page e ambiente di prototipazione front-end di Senty.
 
-**Versione corrente:** `SENTY-LP-v0.3.0`  
+**Versione corrente:** `SENTY-LP-v0.4.0`  
 **Demo live:** https://senty-sigma.vercel.app
 
 ## Stato corrente
 
-La `v0.3.0` è una revisione strutturale della landing, costruita a partire dalla baseline `v0.1.0` e dal client trust loop `v0.2.0`.
+La `v0.4.0` consolida l'architettura narrativa della `v0.3.0` e riallinea tipografia, shape language, colori e motion alle linee guida reali della dashboard Senty.
 
-### Struttura v0.3.0
+### Struttura v0.4.0
 
-1. hero testuale senza menu iniziale, con value proposition e form demo;
-2. navigazione floating che compare solo dopo il superamento della hero;
-3. social proof con client logo loop;
-4. storytelling sticky in 4 momenti: Ascolta → Riunisci → Comprendi → Attiva;
-5. modulo di business value: cosa cambia / perché / dove agire;
-6. griglia finale di sintesi delle capacità;
-7. footer con CTA.
+1. hero più compatta, solo testuale, con form demo;
+2. floating navigation dopo la hero: Metodo / Insight / Funzionalità / Demo;
+3. partner loop con headline “Scelto da brand che ascoltano davvero le persone.”;
+4. storytelling sticky/parallax in 4 momenti: Raccogli → Analizza → Comprendi → Restituisci;
+5. confronto competitor integrato nel momento Comprendi;
+6. modulo Insight dinamico: cosa cambia / cosa lo causa / dove agire;
+7. capability grid finale con shape più arrotondate;
+8. footer con seconda CTA.
 
-## Direzione motion
-
-- motion semplice, intenzionale e leggibile;
-- sticky storytelling per collegare copy e visual;
-- transizioni match-cut/crossfade tra i quattro momenti;
-- micro-animazioni solo dove aiutano a capire un flusso;
-- `prefers-reduced-motion` rispettato.
-
-## Direzione visiva
+## UI system
 
 - font principale: **Manrope**;
-- accenti: **MuseoModerno**;
-- colore primario: **Blue Orchid `#2B3DFA`**;
-- alternanza tra fotografia lifestyle e UI/infografica;
-- card e gerarchie derivate da Senty Analytics.
+- accenti: **MuseoModerno** solo per micro-elementi;
+- Blue Orchid `#2B3DFA` e relativa scala tonale;
+- navy `#171D70` / `#0D103A`;
+- corpi testo ridotti rispetto alla v0.3.0;
+- radius generosi, coerenti con la dashboard;
+- bordi sottili e ombre leggere.
+
+## Motion
+
+- hero quasi statica;
+- menu reveal dopo il superamento del visore;
+- partner marquee lento;
+- sticky storytelling con cambio visual e micro-parallax;
+- modulo Insight scroll-driven con progressiva messa a fuoco dei contenuti;
+- `prefers-reduced-motion` rispettato.
 
 ## Asset temporanei
 
-Le due immagini fotografiche della `v0.3.0` sono reference temporanee da Unsplash usate esclusivamente per validare art direction e ritmo narrativo. Andranno sostituite con asset proprietari/licenziati definitivi prima della release.
+Le fotografie lifestyle restano reference temporanee usate per validare art direction e ritmo narrativo. Andranno sostituite con asset definitivi prima della release.
 
 ## Stack
 
 React + TypeScript + Vite + CSS nativo. GitHub gestisce codice/versioni, Vercel il deploy automatico di `main`.
 
-Le decisioni di identità sono documentate in `docs/SENTY_LP_BASELINE.md`; le iterazioni successive in `docs/ITERATIONS.md`.
+Decisioni e iterazioni sono documentate in `docs/SENTY_LP_BASELINE.md`, `docs/ITERATIONS.md` e `docs/V040_NOTES.md`.
