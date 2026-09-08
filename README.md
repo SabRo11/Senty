@@ -2,21 +2,30 @@
 
 Landing page e ambiente di prototipazione front-end di Senty.
 
-**Versione corrente:** `SENTY-LP-v0.1.0`  
+**Versione corrente:** `SENTY-LP-v0.2.0`  
 **Demo live:** https://senty-sigma.vercel.app
 
-## Baseline v0.1.0
+## Stato corrente
 
-La `v0.1.0` è la base di partenza validata per le successive iterazioni di contenuto e design. Riprende l'architettura narrativa del primo prototipo HTML e la riallinea all'identità reale del prodotto.
+La `v0.1.0` resta la baseline di partenza validata. La `v0.2.0` introduce il primo esperimento UI successivo alla baseline: una fascia di social proof a scorrimento continuo immediatamente sotto la hero.
 
-### Direzione visiva
+### v0.2.0 — Client trust loop
+
+- wording: **“Scelto da brand che vogliono capire meglio ciò che le persone sentono.”**;
+- brand iniziali: Leroy Merlin, Eataly, Dior, Lindt;
+- loghi visualizzati in monocromia nera;
+- loop continuo e seamless, con velocità volutamente lenta;
+- pausa del movimento in caso di `prefers-reduced-motion`;
+- modulo inserito subito sotto la hero per aggiungere prova sociale prima della spiegazione funzionale.
+
+## Direzione visiva
 
 - font principale: **Manrope**;
 - font di identità/accento: **MuseoModerno**;
 - colore primario: **Blue Orchid `#2B3DFA`** e relativa scala tonale;
 - UI ispirata alla dashboard Senty: card leggere, bordi sottili, ampi spazi bianchi, dati leggibili;
 - responsive come requisito strutturale;
-- motion usata per spiegare il flusso, non come decorazione.
+- motion usata per spiegare o rafforzare il racconto, non come decorazione.
 
 ## Stack e strumenti
 
@@ -36,8 +45,9 @@ La `v0.1.0` è la base di partenza validata per le successive iterazioni di cont
 ## Versioning
 
 - `SENTY-LP-v0.1.0` — baseline iniziale;
-- **PATCH** (`0.1.1`) — correzioni e micro-affinamenti;
-- **MINOR** (`0.2.0`) — nuove sezioni o revisioni significative di design/contenuto;
+- `SENTY-LP-v0.2.0` — client trust loop sotto la hero;
+- **PATCH** — correzioni e micro-affinamenti;
+- **MINOR** — nuove sezioni o revisioni significative di design/contenuto;
 - `1.0.0` — prima release completa.
 
 ## Avvio locale
@@ -53,4 +63,4 @@ npm run dev
 npm run build
 ```
 
-Le decisioni di identità e gli asset di riferimento sono documentati in `docs/SENTY_LP_BASELINE.md`.
+Le decisioni di identità sono documentate in `docs/SENTY_LP_BASELINE.md`; le iterazioni successive in `docs/ITERATIONS.md`.
