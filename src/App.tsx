@@ -31,6 +31,62 @@ const topics = [
   ['Customer care', '14%'],
 ]
 
+const clients = [
+  {
+    name: 'Leroy Merlin',
+    slug: 'leroy',
+    src: 'https://www.leroymerlin.it/lmit-site/6.66.0/static/logos/adeo-brands/leroy-merlin.svg',
+  },
+  {
+    name: 'Eataly',
+    slug: 'eataly',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Eataly_-_logo_(Italy,_2004).svg',
+  },
+  {
+    name: 'Dior',
+    slug: 'dior',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dior_Logo_2022.svg',
+  },
+  {
+    name: 'Lindt',
+    slug: 'lindt',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Lindt_sprungli_textlogo.png',
+  },
+]
+
+function ClientStrip() {
+  return (
+    <section className="client-strip" aria-label="Brand che hanno scelto Senty">
+      <div className="client-strip__inner">
+        <p className="client-strip__label">
+          <strong>Scelto da brand</strong> che vogliono capire meglio ciò che le persone sentono.
+        </p>
+
+        <div className="client-marquee">
+          <div className="client-track">
+            {[0, 1].map((groupIndex) => (
+              <div className="client-logo-group" aria-hidden={groupIndex === 1} key={groupIndex}>
+                {clients.map((client) => (
+                  <div className={`client-logo-item client-logo-item--${client.slug}`} key={`${groupIndex}-${client.name}`}>
+                    <img
+                      src={client.src}
+                      alt={groupIndex === 0 ? client.name : ''}
+                      loading="eager"
+                      decoding="async"
+                      onError={(event) => event.currentTarget.closest('.client-logo-item')?.classList.add('is-fallback')}
+                    />
+                    <span className="client-logo-fallback" aria-hidden="true">{client.name}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function App() {
   const [activeSource, setActiveSource] = useState(0)
 
@@ -123,6 +179,8 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        <ClientStrip />
 
         <section className="signals-section" id="signals" aria-labelledby="signals-title">
           <div className="section-heading reveal">
@@ -236,7 +294,7 @@ export default function App() {
       <footer className="site-footer">
         <img src="/senty-logo.svg" alt="Senty" />
         <p>Capisci come si sentono.<br />Senza perderti nei dati.</p>
-        <span>SENTY-LP v0.1.0 · baseline</span>
+        <span>SENTY-LP v0.2.0 · client trust loop</span>
       </footer>
     </div>
   )
