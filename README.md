@@ -2,65 +2,45 @@
 
 Landing page e ambiente di prototipazione front-end di Senty.
 
-**Versione corrente:** `SENTY-LP-v0.2.0`  
+**Versione corrente:** `SENTY-LP-v0.3.0`  
 **Demo live:** https://senty-sigma.vercel.app
 
 ## Stato corrente
 
-La `v0.1.0` resta la baseline di partenza validata. La `v0.2.0` introduce il primo esperimento UI successivo alla baseline: una fascia di social proof a scorrimento continuo immediatamente sotto la hero.
+La `v0.3.0` è una revisione strutturale della landing, costruita a partire dalla baseline `v0.1.0` e dal client trust loop `v0.2.0`.
 
-### v0.2.0 — Client trust loop
+### Struttura v0.3.0
 
-- wording: **“Scelto da brand che vogliono capire meglio ciò che le persone sentono.”**;
-- brand iniziali: Leroy Merlin, Eataly, Dior, Lindt;
-- loghi visualizzati in monocromia nera;
-- loop continuo e seamless, con velocità volutamente lenta;
-- pausa del movimento in caso di `prefers-reduced-motion`;
-- modulo inserito subito sotto la hero per aggiungere prova sociale prima della spiegazione funzionale.
+1. hero testuale senza menu iniziale, con value proposition e form demo;
+2. navigazione floating che compare solo dopo il superamento della hero;
+3. social proof con client logo loop;
+4. storytelling sticky in 4 momenti: Ascolta → Riunisci → Comprendi → Attiva;
+5. modulo di business value: cosa cambia / perché / dove agire;
+6. griglia finale di sintesi delle capacità;
+7. footer con CTA.
+
+## Direzione motion
+
+- motion semplice, intenzionale e leggibile;
+- sticky storytelling per collegare copy e visual;
+- transizioni match-cut/crossfade tra i quattro momenti;
+- micro-animazioni solo dove aiutano a capire un flusso;
+- `prefers-reduced-motion` rispettato.
 
 ## Direzione visiva
 
 - font principale: **Manrope**;
-- font di identità/accento: **MuseoModerno**;
-- colore primario: **Blue Orchid `#2B3DFA`** e relativa scala tonale;
-- UI ispirata alla dashboard Senty: card leggere, bordi sottili, ampi spazi bianchi, dati leggibili;
-- responsive come requisito strutturale;
-- motion usata per spiegare o rafforzare il racconto, non come decorazione.
+- accenti: **MuseoModerno**;
+- colore primario: **Blue Orchid `#2B3DFA`**;
+- alternanza tra fotografia lifestyle e UI/infografica;
+- card e gerarchie derivate da Senty Analytics.
 
-## Stack e strumenti
+## Asset temporanei
 
-- React + TypeScript;
-- Vite;
-- CSS nativo;
-- GitHub: repository, cronologia e versioni;
-- Vercel: deploy automatico della demo live dal branch `main`.
+Le due immagini fotografiche della `v0.3.0` sono reference temporanee da Unsplash usate esclusivamente per validare art direction e ritmo narrativo. Andranno sostituite con asset proprietari/licenziati definitivi prima della release.
 
-## Flusso di lavoro
+## Stack
 
-- `main` rappresenta la versione di riferimento validata;
-- ogni modifica approvata viene registrata in GitHub e pubblicata automaticamente su Vercel;
-- le iterazioni di design vengono identificate come `SENTY-LP-vX.Y.Z`;
-- il link della demo live viene riportato dopo ogni modifica validata.
-
-## Versioning
-
-- `SENTY-LP-v0.1.0` — baseline iniziale;
-- `SENTY-LP-v0.2.0` — client trust loop sotto la hero;
-- **PATCH** — correzioni e micro-affinamenti;
-- **MINOR** — nuove sezioni o revisioni significative di design/contenuto;
-- `1.0.0` — prima release completa.
-
-## Avvio locale
-
-```bash
-npm install
-npm run dev
-```
-
-## Build
-
-```bash
-npm run build
-```
+React + TypeScript + Vite + CSS nativo. GitHub gestisce codice/versioni, Vercel il deploy automatico di `main`.
 
 Le decisioni di identità sono documentate in `docs/SENTY_LP_BASELINE.md`; le iterazioni successive in `docs/ITERATIONS.md`.

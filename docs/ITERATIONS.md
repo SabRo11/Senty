@@ -1,30 +1,37 @@
 # SENTY-LP — Iterazioni
 
-## v0.2.0 — Client trust loop
+## v0.3.0 — Narrative architecture prototype
 
 ### Obiettivo
-Inserire una prova sociale immediata tra hero e spiegazione funzionale, senza appesantire la pagina con una sezione tradizionale di case study o testimonial.
+Passare da una landing SaaS tradizionale a una struttura più editoriale e progressiva, in cui il prodotto viene capito durante lo scroll.
 
-### Soluzione
-- fascia full-width sotto la hero;
-- wording: **“Scelto da brand che vogliono capire meglio ciò che le persone sentono.”**;
-- loop continuo di Leroy Merlin, Eataly, Dior e Lindt;
-- visualizzazione monocromatica nera;
-- animazione lineare lenta e seamless;
-- edge fade leggero per evitare un inizio/fine visivamente brusco;
-- fallback testuale se un asset remoto non viene caricato;
-- `prefers-reduced-motion` rispettato: niente loop, loghi statici e centrati.
+### Architettura
+- hero solo testuale + form demo;
+- menu assente al primo atterraggio e floating navigation dopo la hero;
+- client trust loop subito dopo il visore;
+- storytelling sticky in 4 momenti: Ascolta / Riunisci / Comprendi / Attiva;
+- alternanza fotografia + UI/infografica;
+- nuovo modulo intermedio di business value per rispondere al “so what”;
+- capability grid di sintesi;
+- footer con seconda CTA.
 
-### Asset brand
-- Leroy Merlin: asset SVG dal sito ufficiale Leroy Merlin;
-- Eataly: vettoriale derivato dal logo Eataly e documentato come proveniente da materiale ufficiale Eataly;
-- Dior: logo 2022 documentato come proveniente dal sito ufficiale Dior;
-- Lindt: wordmark documentato come proveniente dal sito corporate Lindt & Sprüngli.
+### Motion
+- apparizione del floating header al superamento della hero;
+- sticky visual storytelling con cambio stato guidato dallo scroll;
+- crossfade e match-cut tra visual;
+- micro-motion sui segnali e sui grafici;
+- rispetto di `prefers-reduced-motion`.
 
-Gli asset sono forzati visivamente in monocromia nera via CSS per mantenere coerenza con la landing.
+### Art direction temporanea
+Le fotografie lifestyle sono asset Unsplash temporanei per testare il mix fotografia/UI. Prima della release vanno sostituite con asset proprietari o definitivi coerenti con l'identità Senty.
 
-### Riferimento motion
-La logica prende spunto dal modulo di social proof immediatamente successivo alla hero nella pagina Brandwatch Sentiment Analysis, ma viene semplificata e riallineata al linguaggio visivo di Senty.
+### Nota sui partner
+Ridimensionamento ottico del logo Dior rispetto agli altri marchi per evitare sovrappeso visivo nel marquee.
 
-### Versione precedente
-`SENTY-LP-v0.1.0` resta la baseline iniziale e può essere recuperata dalla cronologia Git.
+## v0.2.0 — Client trust loop
+
+Social proof immediata sotto la hero con Leroy Merlin, Eataly, Dior e Lindt in monocromia nera e loop continuo.
+
+## v0.1.0 — Baseline
+
+Prima base narrativa e visuale di Senty_LP, con Manrope, Blue Orchid e riferimenti alla dashboard Senty Analytics.
