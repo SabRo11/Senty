@@ -1,5 +1,34 @@
 # SENTY-LP — Iterazioni
 
+## v0.7.0 — Hero panel + richer method art direction
+
+### Obiettivo
+Portare la demo verso un linguaggio più fresco e product-led, riducendo l’effetto “grafico su sfondo” e usando fotografia, UI e motion come un unico sistema coerente.
+
+### Hero
+- il gradiente resta come cornice esterna;
+- informazioni racchiuse in un box fill-width allineato ai margini della pagina;
+- box chiaro con radius Senty e profondità controllata.
+
+### Intro metodo
+- headline confermata: “Ascolta tutto. Capisci cosa conta.”;
+- animazione reveal on-scroll su due righe.
+
+### Metodo
+- Raccogli / Analizza / Comprendi / Confronta / Restituisci confermati;
+- le voci desktop diventano cliccabili mantenendo anche la navigazione scroll-driven;
+- Raccogli: fotografia lifestyle fornita + commenti multicanale generici Instagram, Google e Tripadvisor;
+- Analizza: dashboard bento con sentiment dominante, volume, temi e fonti; micro-animazioni sulle barre e hover;
+- Comprendi: fotografia focalizzata su gesto/tablet + UI dedicata a pattern e driver;
+- Confronta: chart wide-screen su superficie neutra, tre serie e benchmark;
+- Restituisci: fotografia di lavoro collaborativo + card Senty AI con next actions.
+
+### Art direction
+- fotografia fresca, con enfasi su mani, device, oggetti e collaborazione più che sui volti;
+- palette core Senty invariata;
+- accenti lime, aqua, purple e orange usati per rendere l’interfaccia più pop senza perdere credibilità;
+- un messaggio dominante per ogni visual, con contenuti UI coerenti con la capability descritta.
+
 ## v0.6.0 — Seamless hero + five-step method
 
 ### Obiettivo
