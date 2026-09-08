@@ -1,0 +1,121 @@
+.client-strip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  padding: 34px 0 38px;
+}
+
+.client-strip__inner {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.client-strip__label {
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.client-strip__label strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.client-marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.client-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: client-loop 28s linear infinite;
+}
+
+.client-logo-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(58px, 7vw, 108px);
+  padding-right: clamp(58px, 7vw, 108px);
+}
+
+.client-logo-item {
+  width: 158px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.client-logo-item img {
+  width: 100%;
+  max-width: 150px;
+  max-height: 42px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0);
+  opacity: .82;
+}
+
+.client-logo-item--leroy img { max-width: 122px; max-height: 46px; }
+.client-logo-item--eataly img { max-width: 126px; max-height: 48px; }
+.client-logo-item--dior img { max-width: 128px; max-height: 36px; }
+.client-logo-item--lindt img { max-width: 154px; max-height: 32px; }
+
+.client-logo-fallback {
+  display: none;
+  color: #0b0b0b;
+  font-size: 1.04rem;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+
+.client-logo-item.is-fallback img { display: none; }
+.client-logo-item.is-fallback .client-logo-fallback { display: block; }
+.client-marquee:hover .client-track { animation-play-state: paused; }
+
+@keyframes client-loop {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 720px) {
+  .client-strip { padding: 28px 0 30px; }
+  .client-strip__inner { width: calc(100% - 28px); }
+  .client-strip__label { max-width: 310px; margin: 0 auto 22px; font-size: .8rem; }
+  .client-logo-group { gap: 46px; padding-right: 46px; }
+  .client-logo-item { width: 126px; height: 46px; }
+  .client-logo-item img { max-width: 120px; max-height: 34px; }
+  .client-logo-item--leroy img { max-width: 100px; max-height: 38px; }
+  .client-logo-item--eataly img { max-width: 102px; max-height: 39px; }
+  .client-logo-item--dior img { max-width: 100px; max-height: 28px; }
+  .client-logo-item--lindt img { max-width: 122px; max-height: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow: visible;
+  }
+
+  .client-track {
+    width: 100%;
+    animation: none;
+  }
+
+  .client-logo-group {
+    width: 100%;
+    padding-right: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px 34px;
+  }
+
+  .client-logo-group[aria-hidden='true'] { display: none; }
+}
