@@ -9,24 +9,24 @@ const clients = [
 
 const moments = [
   {
-    kicker: '01 / Raccogli',
+    label: 'Raccogli',
     title: 'Tutto parte da ciò che le persone dicono.',
-    copy: 'Recensioni, commenti e feedback arrivano da fonti diverse. Senty li raccoglie in un unico spazio, senza disperdere il contesto.',
+    copy: 'Recensioni, commenti, feedback e reazioni arrivano da fonti diverse. Senty li riunisce in un unico spazio, mantenendo il contesto e riducendo la frammentazione.',
   },
   {
-    kicker: '02 / Analizza',
+    label: 'Analizza',
     title: 'L’AI mette ordine nel rumore.',
-    copy: 'Senty analizza grandi volumi di segnali, identifica pattern, classifica i contenuti e legge il sentiment in modo rapido e coerente.',
+    copy: 'Senty organizza grandi volumi di segnali, identifica pattern, classifica i contenuti e legge il sentiment in modo rapido e coerente.',
   },
   {
-    kicker: '03 / Comprendi',
+    label: 'Comprendi',
     title: 'I dati diventano leggibili.',
-    copy: 'Trend, categorie, rating e topic emergenti prendono forma in una dashboard chiara, utile anche per confrontare il tuo brand con i competitor.',
+    copy: 'Trend, categorie, rating e temi emergenti diventano leggibili a colpo d’occhio. Senty permette anche di confrontare il sentiment del tuo brand con quello dei competitor.',
   },
   {
-    kicker: '04 / Restituisci',
+    label: 'Restituisci',
     title: 'Gli insight tornano ai team in modo chiaro.',
-    copy: 'Sintesi, evidenze e confronti aiutano a capire cosa sta cambiando, perché sta succedendo e dove conviene intervenire.',
+    copy: 'Insight sintetici, priorità e feedback concreti aiutano i team a capire cosa sta cambiando, perché sta succedendo e dove conviene intervenire.',
   },
 ]
 
@@ -76,7 +76,7 @@ function ClientStrip() {
 
 function ReviewScene({ offset }: { offset: number }) {
   return (
-    <div className="scene scene-photo" style={{ backgroundImage: `linear-gradient(180deg, rgba(13,16,58,.03), rgba(13,16,58,.18)), url(${phonePhoto})` }}>
+    <div className="scene scene-photo" style={{ backgroundImage: `linear-gradient(180deg, rgba(13,16,58,.02), rgba(13,16,58,.18)), url(${phonePhoto})` }}>
       <div className="scene-glow" style={{ transform: `translate3d(${offset * 8}px, ${offset * -14}px, 0)` }} />
       <div className="review-stack" style={{ transform: `translate3d(0, ${offset * -18}px, 0)` }}>
         <article className="review-card review-card-main">
@@ -166,24 +166,9 @@ function MomentVisual({ active, offset = 0 }: { active: number; offset?: number 
 }
 
 const insightItems = [
-  {
-    title: 'Cosa sta cambiando',
-    copy: 'Individua variazioni di sentiment, trend e segnali deboli prima che diventino evidenti.',
-    label: 'Sentiment positivo',
-    value: '+18%',
-  },
-  {
-    title: 'Cosa lo sta causando',
-    copy: 'Collega emozioni e percezioni ai temi che generano consenso o frizione, anche rispetto ai competitor.',
-    label: 'Driver critico',
-    value: 'Pricing',
-  },
-  {
-    title: 'Dove agire adesso',
-    copy: 'Trasforma analisi e confronti in priorità concrete, sintesi leggibili e indicazioni condivisibili con il team.',
-    label: 'Senty AI',
-    value: 'Priorità alta',
-  },
+  { title: 'Cosa sta cambiando', copy: 'Individua variazioni di sentiment, trend e segnali deboli prima che diventino evidenti.', label: 'Sentiment positivo', value: '+18%' },
+  { title: 'Cosa lo sta causando', copy: 'Collega emozioni e percezioni ai temi che generano consenso o frizione, anche rispetto ai competitor.', label: 'Driver critico', value: 'Pricing' },
+  { title: 'Dove agire adesso', copy: 'Trasforma analisi e confronti in priorità concrete, sintesi leggibili e indicazioni condivisibili con il team.', label: 'Senty AI', value: 'Priorità alta' },
 ]
 
 export default function App() {
@@ -201,14 +186,12 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const steps = Array.from(document.querySelectorAll<HTMLElement>('[data-story-step]'))
+    const steps = Array.from(document.querySelectorAll<HTMLElement>('[data-method-step]'))
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveMoment(Number((entry.target as HTMLElement).dataset.storyStep || 0))
-        })
-      },
-      { rootMargin: '-34% 0px -44% 0px', threshold: 0 },
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveMoment(Number((entry.target as HTMLElement).dataset.methodStep || 0))
+      }),
+      { rootMargin: '-35% 0px -45% 0px', threshold: 0 },
     )
     steps.forEach((step) => observer.observe(step))
     return () => observer.disconnect()
@@ -217,11 +200,9 @@ export default function App() {
   useEffect(() => {
     const steps = Array.from(document.querySelectorAll<HTMLElement>('[data-insight-step]'))
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveInsight(Number((entry.target as HTMLElement).dataset.insightStep || 0))
-        })
-      },
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveInsight(Number((entry.target as HTMLElement).dataset.insightStep || 0))
+      }),
       { rootMargin: '-30% 0px -42% 0px', threshold: 0 },
     )
     steps.forEach((step) => observer.observe(step))
@@ -231,12 +212,12 @@ export default function App() {
   useEffect(() => {
     let ticking = false
     const update = () => {
-      const story = document.querySelector<HTMLElement>('#method')
-      if (story) {
-        const rect = story.getBoundingClientRect()
+      const method = document.querySelector<HTMLElement>('#method')
+      if (method) {
+        const rect = method.getBoundingClientRect()
         const viewport = window.innerHeight || 1
-        const raw = (viewport * 0.5 - rect.top) / Math.max(rect.height, 1)
-        setParallax(Math.max(-1, Math.min(1, raw * 2 - 0.2)))
+        const raw = (viewport * .5 - rect.top) / Math.max(rect.height, 1)
+        setParallax(Math.max(-1, Math.min(1, raw * 2 - .2)))
       }
       ticking = false
     }
@@ -255,8 +236,10 @@ export default function App() {
     }
   }, [])
 
+  const active = moments[activeMoment]
+
   return (
-    <div className="site-shell">
+    <div className="site-shell v05-shell">
       <header className={showNav ? 'floating-nav is-visible' : 'floating-nav'}>
         <a className="floating-brand" href="#top" aria-label="Senty home"><img src="/senty-logo.svg" alt="Senty" /></a>
         <nav aria-label="Navigazione principale">
@@ -268,7 +251,7 @@ export default function App() {
       </header>
 
       <main>
-        <section className="hero" id="hero" aria-labelledby="hero-title">
+        <section className="hero v05-hero" id="hero" aria-labelledby="hero-title">
           <div className="hero-brand-lockup" id="top">
             <img src="/senty-logo.svg" alt="Senty" />
             <span>Powered by Havas</span>
@@ -284,25 +267,45 @@ export default function App() {
 
         <ClientStrip />
 
-        <section className="story-section" id="method" aria-labelledby="story-title">
-          <div className="section-intro story-intro">
-            <p className="eyebrow">Come funziona</p>
+        <section className="story-section method-section" id="method" aria-labelledby="story-title">
+          <div className="section-intro method-intro">
+            <p className="eyebrow">Metodo</p>
             <h2 id="story-title">Dal feedback all’azione, senza perdere il contesto.</h2>
-            <p>Quattro momenti raccontano il percorso con cui Senty trasforma segnali frammentati in una lettura utile al business.</p>
+            <p>Senty accompagna ogni segnale lungo un percorso semplice: raccoglie, analizza, rende comprensibile e restituisce ciò che serve per decidere.</p>
           </div>
 
-          <div className="story-layout">
-            <div className="story-stage"><div className="story-stage-sticky"><MomentVisual active={activeMoment} offset={parallax} /></div></div>
-            <div className="story-steps">
-              {moments.map((moment, index) => (
-                <article className={index === activeMoment ? 'story-step is-active' : 'story-step'} data-story-step={index} key={moment.title}>
-                  <span>{moment.kicker}</span>
-                  <h3>{moment.title}</h3>
-                  <p>{moment.copy}</p>
-                  <div className="story-mobile-visual"><MomentVisual active={index} /></div>
-                </article>
-              ))}
+          <div className="method-scroll">
+            <div className="method-sticky">
+              <div className="method-copy-panel">
+                <div className="method-labels" aria-label="Fasi del metodo Senty">
+                  {moments.map((moment, index) => (
+                    <div className={activeMoment === index ? 'method-label is-active' : 'method-label'} key={moment.label}>
+                      <span>0{index + 1}</span>{moment.label}
+                    </div>
+                  ))}
+                </div>
+                <div className="method-description" key={active.label}>
+                  <span className="method-current">0{activeMoment + 1} / 04</span>
+                  <h3>{active.title}</h3>
+                  <p>{active.copy}</p>
+                </div>
+              </div>
+              <div className="method-visual"><MomentVisual active={activeMoment} offset={parallax} /></div>
             </div>
+            <div className="method-triggers" aria-hidden="true">
+              {moments.map((moment, index) => <div className="method-trigger" data-method-step={index} key={moment.label} />)}
+            </div>
+          </div>
+
+          <div className="method-mobile">
+            {moments.map((moment, index) => (
+              <article className="method-mobile-step" key={moment.label}>
+                <span>0{index + 1} / {moment.label}</span>
+                <h3>{moment.title}</h3>
+                <p>{moment.copy}</p>
+                <div className="method-mobile-visual"><MomentVisual active={index} /></div>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -322,9 +325,7 @@ export default function App() {
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
                   <div className="insight-metric"><span>{item.label}</span><strong>{item.value}</strong></div>
-                  <div className={`insight-viz insight-viz-${index}`} aria-hidden="true">
-                    <i /><i /><i /><i /><i />
-                  </div>
+                  <div className={`insight-viz insight-viz-${index}`} aria-hidden="true"><i /><i /><i /><i /><i /></div>
                 </article>
               ))}
             </div>
@@ -350,7 +351,7 @@ export default function App() {
           <div className="footer-brand"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div>
           <div className="footer-cta"><h2>Vuoi capire meglio ciò che le persone sentono?</h2><DemoForm compact /></div>
         </div>
-        <div className="footer-bottom"><span>SENTY-LP v0.4.0</span><span>Sentiment intelligence, resa semplice.</span></div>
+        <div className="footer-bottom"><span>SENTY-LP v0.5.0</span><span>Sentiment intelligence, resa semplice.</span></div>
       </footer>
     </div>
   )

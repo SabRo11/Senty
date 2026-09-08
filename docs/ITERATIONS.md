@@ -1,31 +1,34 @@
 # SENTY-LP — Iterazioni
 
-## v0.4.0 — UI system refinement
+## v0.5.0 — Hero + PayPal-like method module
 
 ### Obiettivo
-Consolidare la struttura narrativa della v0.3.0 e correggere le deviazioni rispetto all'identità reale di Senty.
+Rendere più potente l'atterraggio e correggere l'interazione del modulo chiave senza modificare i moduli successivi della landing.
 
-### Decisioni validate
-- nav: Metodo / Insight / Funzionalità / Demo;
-- partner line: “Scelto da brand che ascoltano davvero le persone.”;
-- key moments: Raccogli / Analizza / Comprendi / Restituisci;
-- competitor comparison integrata nel momento Comprendi;
-- modulo Insight mantenuto e reso dinamico.
-
-### UI
-- scala tipografica ridotta;
+### Hero
+- sfondo full-color con Blue Orchid e navy Senty;
+- nessuna immagine di supporto;
+- logo Senty bianco con Powered by Havas;
 - hero più compatta;
-- Blue Orchid e navy riallineati alle guideline;
-- logo Senty con solo “Powered by Havas” sotto;
-- radius più generosi e forme meno squadrate;
-- capability grid finale più morbida e meno tabellare.
+- copy e form demo mantenuti centrali nella gerarchia.
 
-### Motion
-- sticky/parallax per i quattro key moments;
-- layer fotografici e UI con profondità differenziata;
-- modulo Insight scroll-driven con micro-viz progressive;
-- menu reveal invariato dopo la hero;
-- partner marquee lento e continuo.
+### Partner
+- headline confermata: “Scelto da brand che ascoltano davvero le persone.”;
+- dimensione headline ridotta;
+- ulteriore calibrazione ottica del logo Dior;
+- loop lento e continuo invariato.
+
+### Metodo
+- headline principale: “Dal feedback all’azione, senza perdere il contesto.”;
+- quattro momenti validati: Raccogli / Analizza / Comprendi / Restituisci;
+- desktop: lista degli step e descrizione a sinistra, visual a destra;
+- scroll-driven state change: step, copy e visual cambiano insieme;
+- competitor comparison integrata in Comprendi;
+- mobile: sequenza verticale con un visual per ogni momento.
+
+## v0.4.0 — UI system refinement
+
+Consolidamento della struttura narrativa, riduzione della scala tipografica, riallineamento a palette/radius Senty, competitor comparison e modulo Insight dinamico.
 
 ## v0.3.0 — Narrative architecture prototype
 
