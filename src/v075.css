@@ -1,0 +1,243 @@
+/* SENTY-LP v0.7.5 — compact hero + crop-safe method visuals */
+
+/* HERO — compact, fully visible above the fold on common desktop viewports. */
+.v071-hero {
+  min-height: 0 !important;
+  padding: 16px 0 34px !important;
+  background: #fff !important;
+}
+.hero-panel-v071 {
+  width: min(1540px, calc(100% - 20px)) !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 38px 64px 42px !important;
+  border-radius: 42px !important;
+}
+.hero-content-v071 {
+  min-height: 0 !important;
+  max-width: 1080px !important;
+}
+.v071-hero .hero-brand-lockup {
+  margin-bottom: 20px !important;
+}
+.v071-hero .hero-brand-lockup img {
+  width: 148px !important;
+}
+.v071-hero .eyebrow {
+  margin-bottom: 12px !important;
+}
+.v071-hero .hero-copy h1 {
+  margin-bottom: 16px !important;
+}
+.v071-hero .hero-copy h1::before {
+  content: 'Capisci\A cosa sentono le persone.\A E cosa farne.' !important;
+  font-size: clamp(3rem, 5.45vw, 5.7rem) !important;
+  line-height: .91 !important;
+  letter-spacing: -.066em !important;
+}
+.v071-hero .hero-intro {
+  max-width: 700px !important;
+  margin-bottom: 20px !important;
+  font-size: .92rem !important;
+  line-height: 1.55 !important;
+}
+.v071-hero .demo-form {
+  width: min(500px, 100%) !important;
+}
+.v071-hero .hero-copy small {
+  margin-top: 8px !important;
+}
+
+/* Keep geometric lines subtle; density reads without increasing visual mass. */
+.hero-panel-v071::before {
+  opacity: .28 !important;
+  background-size: 180px 180px, 180px 180px, 360px 360px !important;
+}
+.hero-panel-v071::after {
+  opacity: .56 !important;
+}
+
+/* METHOD — never crop supplied composites. Their intrinsic ratio is 1400:1200 = 7:6. */
+.method-visual {
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 7 / 6 !important;
+}
+.method-visual .moment-canvas,
+.method-visual .moment-panel,
+.method-visual .scene {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+.collect-scene-v071,
+.analyze-scene-v071,
+.understand-scene-v071,
+.compare-scene-v071,
+.return-scene-v071 {
+  aspect-ratio: 7 / 6 !important;
+  background: #f5f6ff !important;
+  border-radius: 36px !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 56px rgba(23,29,112,.10) !important;
+  transform: translate3d(0,0,0) !important;
+  transition: transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease !important;
+}
+
+/* The raster itself stays at 1:1 scale and uses contain, so UI can never be clipped. */
+.collect-scene-v071::after,
+.analyze-scene-v071::after,
+.understand-scene-v071::after,
+.compare-scene-v071::after,
+.return-scene-v071::after {
+  inset: 0 !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  transform: none !important;
+  filter: none !important;
+  transition: opacity .4s ease !important;
+  animation: none !important;
+  image-rendering: auto !important;
+}
+
+/* No glint over rasterized text/UI: it reduces perceived sharpness. */
+.collect-scene-v071::before,
+.analyze-scene-v071::before,
+.understand-scene-v071::before,
+.compare-scene-v071::before,
+.return-scene-v071::before {
+  display: none !important;
+  animation: none !important;
+}
+
+/* Motion moves the frame, not the pixels inside it. */
+.moment-panel.is-active .scene {
+  animation: sentyFrameEnterV075 .6s cubic-bezier(.22,1,.36,1) both !important;
+}
+.method-visual:hover .moment-panel.is-active .scene {
+  transform: translate3d(0,-4px,0) !important;
+  box-shadow: 0 30px 66px rgba(23,29,112,.14) !important;
+}
+.method-visual:hover .moment-panel.is-active .scene::after {
+  transform: none !important;
+  filter: none !important;
+}
+@keyframes sentyFrameEnterV075 {
+  from { opacity: .76; transform: translate3d(0,10px,0); }
+  to { opacity: 1; transform: translate3d(0,0,0); }
+}
+
+/* Desktop method spacing follows the actual visual height rather than forcing 650px. */
+.method-sticky {
+  align-items: center !important;
+}
+.method-copy-panel {
+  height: auto !important;
+  min-height: min(42vw, 600px) !important;
+  max-height: 600px !important;
+}
+
+/* Mobile: full composition, no cover crop. */
+@media (max-width: 980px) {
+  .v071-hero {
+    padding: 12px 0 28px !important;
+  }
+  .hero-panel-v071 {
+    width: calc(100% - 18px) !important;
+    padding: 34px 28px 38px !important;
+    border-radius: 34px !important;
+  }
+  .v071-hero .hero-brand-lockup {
+    margin-bottom: 18px !important;
+  }
+  .v071-hero .hero-copy h1::before {
+    font-size: clamp(2.9rem, 8.3vw, 5rem) !important;
+  }
+  .v071-hero .hero-intro {
+    max-width: 650px !important;
+  }
+
+  .method-mobile-visual {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 7 / 6 !important;
+    margin-top: 24px !important;
+  }
+  .method-mobile-visual .moment-canvas,
+  .method-mobile-visual .moment-panel,
+  .method-mobile-visual .scene {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    aspect-ratio: 7 / 6 !important;
+  }
+  .method-mobile-visual .scene::after {
+    background-size: contain !important;
+    background-position: center !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .v071-hero {
+    padding: 8px 0 24px !important;
+  }
+  .hero-panel-v071 {
+    width: calc(100% - 12px) !important;
+    padding: 28px 16px 32px !important;
+    border-radius: 28px !important;
+  }
+  .v071-hero .hero-brand-lockup {
+    margin-bottom: 16px !important;
+  }
+  .v071-hero .hero-brand-lockup img {
+    width: 132px !important;
+  }
+  .v071-hero .eyebrow {
+    margin-bottom: 10px !important;
+    font-size: .66rem !important;
+  }
+  .v071-hero .hero-copy h1::before {
+    font-size: clamp(2.35rem, 11.4vw, 3.55rem) !important;
+    line-height: .93 !important;
+  }
+  .v071-hero .hero-intro {
+    max-width: 94% !important;
+    margin-bottom: 18px !important;
+    font-size: .83rem !important;
+    line-height: 1.5 !important;
+  }
+  .v071-hero .hero-copy small {
+    display: none !important;
+  }
+
+  .method-mobile {
+    gap: 46px !important;
+  }
+  .method-mobile-step {
+    padding-bottom: 42px !important;
+  }
+  .method-mobile-visual {
+    margin-top: 20px !important;
+  }
+  .collect-scene-v071,
+  .analyze-scene-v071,
+  .understand-scene-v071,
+  .compare-scene-v071,
+  .return-scene-v071 {
+    border-radius: 24px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moment-panel.is-active .scene,
+  .method-visual:hover .moment-panel.is-active .scene {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+.footer-bottom span:first-child::after { content: 'SENTY-LP v0.7.5' !important; }
