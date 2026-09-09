@@ -1,7 +1,7 @@
 {
   "name": "senty-lp",
   "private": true,
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Landing page ufficiale di Senty — sentiment intelligence, resa semplice.",
   "homepage": "https://senty-sigma.vercel.app",
   "type": "module",
