@@ -1,0 +1,635 @@
+/* SENTY-LP v0.7.2 — strict alignment pass on approved hero + method direction */
+
+/* =========================================================
+   HERO — white page, gradient only INSIDE the rounded visor.
+   Klarna-like single composition: copy on the left, image on
+   the right, no extra panel/background break around it.
+   ========================================================= */
+.v071-hero {
+  min-height: auto !important;
+  padding: 26px 0 54px !important;
+  background: #fff !important;
+}
+.v071-hero::before,
+.v071-hero::after { display: none !important; }
+
+.hero-panel-v071 {
+  width: min(1180px, calc(100% - 40px)) !important;
+  min-height: 600px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, .92fr) minmax(430px, 1.08fr) !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 42px !important;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(166,175,245,.48) 0, rgba(82,98,249,.18) 26%, transparent 47%),
+    radial-gradient(circle at 74% 92%, rgba(123,135,242,.27) 0, transparent 34%),
+    linear-gradient(135deg, #2b3dfa 0%, #2637dc 46%, #171d70 100%) !important;
+  box-shadow: none !important;
+}
+.hero-panel-v071::before { display: none !important; }
+
+.hero-content-v071 {
+  position: relative;
+  z-index: 3;
+  align-self: stretch;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 44px 50px 56px !important;
+}
+.v071-hero .hero-brand-lockup {
+  margin: 0 0 34px !important;
+  justify-content: flex-start !important;
+}
+.v071-hero .hero-brand-lockup img {
+  width: 168px !important;
+  filter: brightness(0) invert(1) !important;
+}
+.v071-hero .hero-brand-lockup span {
+  color: #fff !important;
+  opacity: .66 !important;
+}
+.v071-hero .hero-copy {
+  width: 100% !important;
+  max-width: 560px !important;
+  text-align: left !important;
+  margin: 0 !important;
+}
+.v071-hero .eyebrow {
+  color: #d9dcff !important;
+  text-align: left !important;
+}
+.v071-hero .hero-copy h1 {
+  max-width: 570px !important;
+  margin: 0 0 18px !important;
+  color: #fff !important;
+  font-size: clamp(3rem, 4.7vw, 5rem) !important;
+  line-height: .94 !important;
+  letter-spacing: -.062em !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
+.v071-hero .hero-intro {
+  max-width: 520px !important;
+  margin: 0 0 24px !important;
+  color: rgba(255,255,255,.82) !important;
+  font-size: .96rem !important;
+  line-height: 1.62 !important;
+  text-align: left !important;
+}
+.v071-hero .hero-copy small {
+  color: rgba(255,255,255,.58) !important;
+  text-align: left !important;
+}
+.v071-hero .demo-form {
+  max-width: 510px !important;
+  margin: 0 !important;
+  border-color: rgba(255,255,255,.22) !important;
+  background: #fff !important;
+  box-shadow: 0 18px 48px rgba(13,16,58,.20) !important;
+}
+.v071-hero .demo-form button {
+  background: #171d70 !important;
+}
+
+.hero-media-v071 {
+  position: relative !important;
+  min-height: 600px !important;
+  height: 100% !important;
+  align-self: stretch !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-size: cover !important;
+  background-position: 48% 53% !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+.hero-media-v071::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, #2637dc 0%, rgba(38,55,220,.50) 14%, rgba(23,29,112,.06) 42%, transparent 62%),
+    linear-gradient(180deg, rgba(13,16,58,.04), rgba(13,16,58,.20));
+  pointer-events: none;
+}
+.hero-media-card {
+  z-index: 2 !important;
+  min-width: 164px !important;
+  padding: 14px 16px !important;
+  border: 1px solid rgba(255,255,255,.52) !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.92) !important;
+  box-shadow: 0 18px 42px rgba(13,16,58,.17) !important;
+  backdrop-filter: blur(14px) !important;
+}
+.hero-media-card--top { top: 7% !important; right: 6% !important; }
+.hero-media-card--bottom { bottom: 7% !important; left: 7% !important; }
+.hero-media-card span { color: #777d9b !important; font-size: .58rem !important; font-weight: 650 !important; }
+.hero-media-card strong { color: #11164f !important; font-size: 1.72rem !important; font-weight: 750 !important; letter-spacing: -.05em !important; }
+.hero-media-card small { color: #8d92aa !important; font-size: .52rem !important; }
+
+.v071-shell .client-strip,
+.v072-shell .client-strip {
+  margin-top: 0 !important;
+  background: #fff !important;
+}
+
+/* =========================================================
+   METHOD COPY — restore the stronger v0.5/v0.6 hierarchy.
+   Keep click + scroll behaviour untouched.
+   ========================================================= */
+.v071-shell .method-sticky,
+.v072-shell .method-sticky {
+  grid-template-columns: minmax(300px, .66fr) minmax(540px, 1.28fr) !important;
+  gap: clamp(54px, 6vw, 94px) !important;
+}
+.v071-shell .method-copy-panel,
+.v072-shell .method-copy-panel {
+  height: min(72vh, 650px) !important;
+  min-height: 540px !important;
+  padding: 7px 0 4px !important;
+}
+.v071-shell .method-label,
+.v072-shell .method-label {
+  padding: 8px 34px 8px 0 !important;
+  color: #c4c8db !important;
+  font-size: clamp(2rem, 3.35vw, 3.5rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.055em !important;
+  font-weight: 700 !important;
+}
+.v071-shell .method-label.is-active,
+.v072-shell .method-label.is-active {
+  color: #11164f !important;
+  transform: translateX(6px) !important;
+}
+.v071-shell .method-description,
+.v072-shell .method-description {
+  max-width: 430px !important;
+}
+.v071-shell .method-description h3,
+.v072-shell .method-description h3 {
+  margin: 0 0 12px !important;
+  color: #11164f !important;
+  font-size: 1.42rem !important;
+  line-height: 1.18 !important;
+  letter-spacing: -.038em !important;
+  font-weight: 700 !important;
+}
+.v071-shell .method-description p,
+.v072-shell .method-description p {
+  margin: 0 !important;
+  color: #697096 !important;
+  font-size: .94rem !important;
+  line-height: 1.68 !important;
+  font-weight: 530 !important;
+}
+
+/* =========================================================
+   RACCOGLI — mirror the approved composition:
+   fresh photo on the left, large floating review cards on
+   the right, one purple CTA sticker. No extra dashboard UI.
+   ========================================================= */
+.collect-scene-v071 {
+  isolation: isolate !important;
+  background-size: cover !important;
+  background-position: 36% 48% !important;
+  background-repeat: no-repeat !important;
+  background-color: #dce7f0 !important;
+}
+.collect-scene-v071::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(90deg, rgba(13,16,58,.02) 0%, rgba(13,16,58,.00) 45%, rgba(13,16,58,.12) 100%) !important;
+  pointer-events: none;
+}
+.collect-scene-v071::after {
+  content: 'Tutte le recensioni\A in un unico posto   →';
+  white-space: pre;
+  position: absolute;
+  z-index: 4;
+  left: 47%;
+  bottom: 9%;
+  padding: 13px 18px 14px;
+  border-radius: 19px;
+  background: linear-gradient(135deg, #5361ff, #6548ef);
+  color: #fff;
+  font-size: .66rem;
+  line-height: 1.18;
+  font-weight: 700;
+  box-shadow: 0 18px 36px rgba(43,61,250,.27);
+  transform: rotate(-1.4deg);
+}
+.collect-review-layer-v071 {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+}
+.review-pop-v071 {
+  padding: 16px 17px 15px !important;
+  border: 1px solid rgba(255,255,255,.70) !important;
+  border-radius: 22px !important;
+  background: rgba(255,255,255,.94) !important;
+  box-shadow: 0 18px 42px rgba(13,16,58,.15) !important;
+  backdrop-filter: blur(14px) !important;
+}
+.review-pop-v071--instagram {
+  width: 38% !important;
+  left: 45% !important;
+  right: auto !important;
+  top: 6% !important;
+  transform: rotate(1deg) !important;
+}
+.review-pop-v071--google {
+  width: 37% !important;
+  right: 3.2% !important;
+  top: 20% !important;
+  transform: rotate(-.7deg) !important;
+}
+.review-pop-v071--tripadvisor {
+  width: 40% !important;
+  right: 19% !important;
+  top: 43% !important;
+  bottom: auto !important;
+  transform: rotate(.7deg) !important;
+}
+.review-pop-v071--social {
+  width: 35% !important;
+  right: 2.5% !important;
+  bottom: 7% !important;
+  top: auto !important;
+  transform: rotate(-1deg) !important;
+}
+.review-pop-v071 p {
+  margin: 0 !important;
+  color: #252b50 !important;
+  font-size: .72rem !important;
+  line-height: 1.4 !important;
+  font-weight: 560 !important;
+}
+.review-pop-v071 .review-pop__meta b { font-size: .67rem !important; font-weight: 750 !important; }
+.review-pop-v071 .review-pop__meta small { font-size: .53rem !important; }
+.review-pop-v071 .review-pop__foot { margin-top: 9px !important; font-size: .53rem !important; }
+.review-stars-v071 { margin: 6px 0 7px !important; font-size: .72rem !important; }
+.review-tags-v071 span { font-size: .49rem !important; }
+
+/* =========================================================
+   ANALIZZA — follow the supplied bento reference much more
+   literally, but map it to Senty typography and palette.
+   ========================================================= */
+.analyze-scene-v071 {
+  display: grid !important;
+  place-items: stretch !important;
+  padding: 18px !important;
+  background: #222b7f !important;
+}
+.analysis-bento-v071 {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 520px !important;
+  display: grid !important;
+  grid-template-columns: 1.12fr .62fr 1.14fr !important;
+  grid-template-rows: .66fr .67fr .67fr !important;
+  gap: 12px !important;
+}
+.analysis-card-v071 {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  padding: 20px !important;
+  border: 0 !important;
+  border-radius: 26px !important;
+  box-shadow: none !important;
+}
+.analysis-card-v071--main {
+  grid-column: 1 !important;
+  grid-row: 1 / span 3 !important;
+  background: #11152f !important;
+  color: #fff !important;
+}
+.analysis-card-v071--lime {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  background: #d9ff72 !important;
+  color: #11152f !important;
+}
+.analysis-card-v071--progress {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  background: #fff !important;
+  color: #11152f !important;
+}
+.analysis-card-v071--performance {
+  grid-column: 3 !important;
+  grid-row: 1 / span 2 !important;
+  background: #11152f !important;
+  color: #fff !important;
+}
+.analysis-card-v071--trend {
+  grid-column: 2 / span 2 !important;
+  grid-row: 3 !important;
+  background: #d9ff72 !important;
+  color: #11152f !important;
+}
+.analysis-card-v071__head { align-items: flex-start !important; }
+.analysis-chip-v071 {
+  padding: 6px 9px !important;
+  border-radius: 999px !important;
+  background: #d9ff72 !important;
+  color: #11152f !important;
+  font-size: .52rem !important;
+  font-weight: 800 !important;
+}
+.analysis-chip-v071--orange { background: #ffc36c !important; }
+.analysis-chip-v071--dark { background: #11152f !important; color: #fff !important; }
+.analysis-donut-v071 {
+  width: min(270px, 88%) !important;
+  margin: 36px auto 26px !important;
+  background: conic-gradient(#876cf0 0 27%, #d9ff72 27% 39%, #45c4a5 39% 93%, #ffc36c 93% 100%) !important;
+  box-shadow: none !important;
+}
+.analysis-donut-v071::after { background: #11152f !important; }
+.analysis-donut-v071 strong {
+  font-size: clamp(3.5rem, 6vw, 5.8rem) !important;
+  font-weight: 540 !important;
+  letter-spacing: -.065em !important;
+}
+.analysis-donut-v071 span { color: #c6cae5 !important; }
+.analysis-legend-v071 {
+  display: grid !important;
+  gap: 10px !important;
+  padding: 0 6px !important;
+}
+.analysis-legend-v071 span {
+  display: grid !important;
+  grid-template-columns: 9px 1fr auto !important;
+  gap: 8px !important;
+  align-items: center !important;
+  color: #e1e4f4 !important;
+  font-size: .64rem !important;
+}
+.analysis-legend-v071 b { color: #fff !important; font-size: .68rem !important; }
+.analysis-card-v071--lime > strong {
+  display: block !important;
+  margin-top: 28px !important;
+  font-size: 2.3rem !important;
+  line-height: .9 !important;
+  letter-spacing: -.06em !important;
+}
+.analysis-card-v071--lime > span { font-size: .62rem !important; }
+.analysis-arrow-v071 {
+  width: 38px !important;
+  height: 38px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  background: #11152f !important;
+  color: #d9ff72 !important;
+  font-size: 1.2rem !important;
+}
+.analysis-card-v071--progress > strong {
+  display: block !important;
+  margin: 16px 0 12px !important;
+  font-size: 2.25rem !important;
+  line-height: .92 !important;
+  letter-spacing: -.055em !important;
+}
+.analysis-performance-value-v071 {
+  display: block !important;
+  margin: 12px 0 6px !important;
+  font-size: clamp(2.3rem, 4vw, 4rem) !important;
+  line-height: .9 !important;
+  font-weight: 520 !important;
+}
+.analysis-bars-v071 {
+  height: 170px !important;
+  gap: 7px !important;
+  margin-top: 20px !important;
+}
+.analysis-bars-v071 i {
+  position: relative !important;
+  border-radius: 8px 8px 3px 3px !important;
+  background: #876cf0 !important;
+}
+.analysis-bars-v071 i::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 9px;
+  border-radius: 8px 8px 0 0;
+  background: #d9ff72;
+}
+.analysis-bars-v071 i span { color: #fff !important; font-size: .55rem !important; }
+.analysis-card-v071--trend .analysis-card-v071__head strong {
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 1.9rem !important;
+  letter-spacing: -.055em !important;
+}
+.analysis-card-v071--trend svg { height: 105px !important; margin-top: 4px !important; }
+.analysis-trend-grid-v071 { stroke: rgba(17,21,47,.12) !important; }
+.analysis-trend-line-v071 { stroke: #27a98d !important; stroke-width: 5 !important; }
+.analysis-trend-line-v071--ghost { stroke: #876cf0 !important; stroke-width: 4 !important; }
+
+/* =========================================================
+   COMPRENDI — use the supplied tablet shot and crop down into
+   the action. UI remains the existing Senty insight overlay.
+   ========================================================= */
+.understand-scene-v071 {
+  isolation: isolate !important;
+  background-size: cover !important;
+  background-position: center 84% !important;
+  background-repeat: no-repeat !important;
+}
+.understand-scene-v071::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(13,16,58,.00) 0%, rgba(13,16,58,.02) 42%, rgba(13,16,58,.34) 100%) !important;
+  pointer-events: none;
+}
+.insight-float-v071 {
+  right: 5% !important;
+  top: 7% !important;
+  max-width: 245px !important;
+  border-radius: 19px !important;
+  transform: rotate(1deg) !important;
+}
+.insight-cluster-card-v071 {
+  left: 5% !important;
+  right: 5% !important;
+  bottom: 5% !important;
+  padding: 22px 23px !important;
+  border-radius: 28px !important;
+}
+.insight-cluster-card-v071 .insight-cluster__title strong {
+  font-size: clamp(1.65rem, 3vw, 2.65rem) !important;
+  font-weight: 700 !important;
+}
+.insight-cluster-card-v071 .driver-pill b { font-size: .68rem !important; font-weight: 700 !important; }
+
+/* =========================================================
+   CONFRONTA — same structure approved, just stronger and wider.
+   ========================================================= */
+.compare-scene-v071 { background: #fff !important; }
+.compare-wide-layout-v071 {
+  min-height: 520px !important;
+  padding: 30px 32px 24px !important;
+}
+.compare-wide-head-v071 h4 {
+  font-size: clamp(1.7rem, 2.6vw, 2.45rem) !important;
+  font-weight: 750 !important;
+  letter-spacing: -.05em !important;
+}
+.compare-legend-v071 {
+  margin-top: 20px !important;
+  font-size: .64rem !important;
+  font-weight: 700 !important;
+}
+.compare-legend-v071 i { height: 5px !important; width: 22px !important; }
+.compare-chart-wrap-v071,
+.compare-chart-v071 { min-height: 330px !important; }
+.compare-chart-v071 .grid { stroke: #e8eaf3 !important; stroke-width: 1.2 !important; }
+.compare-chart-v071 .brand-line { stroke-width: 10 !important; }
+.compare-chart-v071 .comp-a,
+.compare-chart-v071 .comp-b { stroke-width: 7 !important; }
+.compare-benchmark-v071 {
+  right: 5% !important;
+  top: 13% !important;
+  padding: 13px 16px !important;
+  border-radius: 17px !important;
+  background: #d9ff72 !important;
+  color: #173b27 !important;
+  box-shadow: 0 12px 28px rgba(35,95,36,.12) !important;
+}
+.compare-benchmark-v071 b { font-size: 1.08rem !important; font-weight: 800 !important; }
+.compare-benchmark-v071 span { font-size: .56rem !important; font-weight: 650 !important; }
+.compare-axis-v071 { font-size: .58rem !important; font-weight: 650 !important; }
+
+/* =========================================================
+   RESTITUISCI — ONE background photo only, never tiled.
+   Keep the approved Senty AI action UI on top.
+   ========================================================= */
+.return-scene-v071 {
+  isolation: isolate !important;
+  background-size: cover !important;
+  background-position: center 49% !important;
+  background-repeat: no-repeat !important;
+  background-color: #d9d7d2 !important;
+}
+.return-scene-v071::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(13,16,58,.00) 10%, rgba(13,16,58,.07) 48%, rgba(13,16,58,.38) 100%) !important;
+}
+.return-ui-layer-v071 {
+  left: 5% !important;
+  right: 5% !important;
+  bottom: 5% !important;
+}
+.return-action-card-v071 {
+  width: min(620px, 86%) !important;
+  margin-left: auto !important;
+  padding: 23px 24px !important;
+  border-radius: 30px !important;
+  background: rgba(255,255,255,.96) !important;
+  box-shadow: 0 24px 58px rgba(13,16,58,.19) !important;
+}
+.return-action-card-v071 h4 {
+  max-width: 510px !important;
+  margin: 14px 0 16px !important;
+  font-size: 1.28rem !important;
+  line-height: 1.18 !important;
+  font-weight: 750 !important;
+  letter-spacing: -.04em !important;
+}
+.return-action-card-v071 .next-action {
+  padding: 11px 12px !important;
+  border-radius: 15px !important;
+}
+.return-action-card-v071 .next-action span { font-size: .64rem !important; font-weight: 700 !important; }
+.return-action-card-v071 .next-action b { font-size: .51rem !important; }
+
+/* Tablet/mobile */
+@media (max-width: 980px) {
+  .hero-panel-v071 { grid-template-columns: 1fr 1fr !important; min-height: 570px !important; }
+  .hero-content-v071 { padding: 42px 30px 44px !important; }
+  .hero-media-v071 { min-height: 570px !important; }
+  .v071-hero .hero-copy h1 { font-size: clamp(2.55rem, 6vw, 4rem) !important; }
+  .analysis-bento-v071 { min-height: 470px !important; }
+  .review-pop-v071--instagram { width: 42% !important; left: 42% !important; }
+  .review-pop-v071--google { width: 41% !important; }
+  .review-pop-v071--tripadvisor { width: 44% !important; right: 14% !important; }
+  .review-pop-v071--social { width: 38% !important; }
+}
+
+@media (max-width: 720px) {
+  .v071-hero { padding: 12px 0 28px !important; }
+  .hero-panel-v071 {
+    width: calc(100% - 20px) !important;
+    min-height: auto !important;
+    grid-template-columns: 1fr !important;
+    border-radius: 30px !important;
+  }
+  .hero-content-v071 { padding: 34px 20px 36px !important; }
+  .hero-media-v071 { min-height: 370px !important; order: 2 !important; }
+  .v071-hero .hero-copy h1 { font-size: clamp(2.35rem, 11vw, 3.45rem) !important; }
+  .v071-hero .hero-intro { font-size: .88rem !important; }
+  .hero-media-v071::before { background: linear-gradient(180deg, #2637dc 0%, rgba(38,55,220,.32) 12%, transparent 38%) !important; }
+
+  .method-mobile-step h3 { font-size: 1.75rem !important; font-weight: 700 !important; }
+  .method-mobile-step > p { font-size: .9rem !important; font-weight: 520 !important; }
+
+  .collect-scene-v071::after {
+    left: 4% !important;
+    bottom: 4% !important;
+    font-size: .56rem !important;
+    padding: 10px 12px !important;
+  }
+  .review-pop-v071 { padding: 11px 12px !important; border-radius: 16px !important; }
+  .review-pop-v071--instagram { width: 55% !important; left: auto !important; right: 3% !important; top: 4% !important; }
+  .review-pop-v071--google { width: 52% !important; right: 3% !important; top: 27% !important; }
+  .review-pop-v071--tripadvisor { width: 58% !important; right: 3% !important; top: 50% !important; }
+  .review-pop-v071--social { width: 50% !important; right: 3% !important; bottom: 5% !important; }
+  .review-pop-v071 p { font-size: .56rem !important; }
+
+  .analyze-scene-v071 { padding: 10px !important; }
+  .analysis-bento-v071 {
+    min-height: 420px !important;
+    grid-template-columns: 1.05fr .95fr !important;
+    grid-template-rows: .75fr .75fr .75fr !important;
+    gap: 8px !important;
+  }
+  .analysis-card-v071 { padding: 13px !important; border-radius: 19px !important; }
+  .analysis-card-v071--main { grid-column: 1 !important; grid-row: 1 / span 3 !important; }
+  .analysis-card-v071--lime { grid-column: 2 !important; grid-row: 1 !important; }
+  .analysis-card-v071--progress { grid-column: 2 !important; grid-row: 2 !important; }
+  .analysis-card-v071--performance { grid-column: 2 !important; grid-row: 3 !important; }
+  .analysis-card-v071--trend { display: none !important; }
+  .analysis-donut-v071 { width: 142px !important; margin: 30px auto 24px !important; }
+  .analysis-donut-v071 strong { font-size: 2.75rem !important; }
+  .analysis-bars-v071 { height: 90px !important; }
+  .analysis-performance-value-v071 { font-size: 1.75rem !important; }
+
+  .understand-scene-v071 { background-position: center 84% !important; }
+  .insight-cluster-card-v071 { left: 3% !important; right: 3% !important; bottom: 3% !important; padding: 16px !important; }
+  .insight-float-v071 { right: 3% !important; top: 4% !important; max-width: 170px !important; }
+
+  .compare-wide-layout-v071 { padding: 20px 16px !important; min-height: 400px !important; }
+  .compare-chart-wrap-v071, .compare-chart-v071 { min-height: 245px !important; }
+
+  .return-action-card-v071 { width: 96% !important; padding: 16px !important; border-radius: 22px !important; }
+  .return-action-card-v071 h4 { font-size: 1rem !important; }
+}
