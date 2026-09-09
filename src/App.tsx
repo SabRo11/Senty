@@ -54,50 +54,66 @@ function ClientStrip() {
 
 function CollectScene({ offset }: { offset: number }) {
   return (
-    <div className="scene collect-scene-v07" style={{ backgroundImage: `url(${collectPhoto})` }}>
-      <div className="collect-review-layer" style={{ transform: `translate3d(0, ${offset * -10}px, 0)` }}>
-        <article className="review-pop review-pop--instagram">
-          <div className="review-pop__head"><span className="channel-mark channel-mark--ig">IG</span><div className="review-pop__meta"><b>Instagram</b><small>commento · oggi</small></div><span className="pop-pill pop-pill--lime review-pop__sentiment">Positivo</span></div>
-          <p>“Tutto molto semplice da capire. Esperienza super fluida ✨”</p>
-          <div className="review-pop__foot"><span>♥ 84</span><span>● 9 risposte</span></div>
+    <div className="scene collect-scene-v071" style={{ backgroundImage: `url(${collectPhoto})` }}>
+      <div className="collect-review-layer-v071" style={{ transform: `translate3d(0, ${offset * -9}px, 0)` }}>
+        <article className="review-pop review-pop-v071 review-pop-v071--instagram">
+          <div className="review-pop__head"><span className="channel-mark channel-mark--ig">IG</span><div className="review-pop__meta"><b>giulia.m</b><small>Instagram · 2 giorni fa</small></div><span className="pop-pill pop-pill--lime review-pop__sentiment">Positivo</span></div>
+          <p>Esperienza top! ✨<br />Tutto super semplice e intuitivo.</p>
+          <div className="review-pop__foot"><span>♥ 128</span><span>◯ 12</span></div>
         </article>
-        <article className="review-pop review-pop--google">
-          <div className="review-pop__head"><span className="channel-mark channel-mark--g">G</span><div className="review-pop__meta"><b>Google</b><small>recensione · 2 giorni fa</small></div><span className="pop-pill pop-pill--orange review-pop__sentiment">Negativo</span></div>
-          <p>“Tempi di attesa un po’ lunghi. Il servizio può essere più rapido.”</p>
-          <div className="review-pop__foot"><span>★★★☆☆</span><span>Attesa</span></div>
+        <article className="review-pop review-pop-v071 review-pop-v071--google">
+          <div className="review-pop__head"><span className="channel-mark channel-mark--g">G</span><div className="review-pop__meta"><b>Luca R.</b><small>Google · 1 settimana fa</small></div><span className="pop-pill pop-pill--orange review-pop__sentiment">Negativo</span></div>
+          <div className="review-stars-v071">★★★☆☆</div>
+          <p>Prezzi un po’ troppo alti rispetto alla media.</p>
         </article>
-        <article className="review-pop review-pop--tripadvisor">
-          <div className="review-pop__head"><span className="channel-mark channel-mark--ta">TA</span><div className="review-pop__meta"><b>Tripadvisor</b><small>recensione · questa settimana</small></div><span className="pop-pill pop-pill--purple review-pop__sentiment">Misto</span></div>
-          <p>“Personale molto gentile, ma alcune informazioni non erano chiarissime.”</p>
-          <div className="review-pop__foot"><span>★★★★☆</span><span>Servizio</span><span>Chiarezza</span></div>
+        <article className="review-pop review-pop-v071 review-pop-v071--tripadvisor">
+          <div className="review-pop__head"><span className="channel-mark channel-mark--ta">TA</span><div className="review-pop__meta"><b>Martina P.</b><small>Tripadvisor · 3 giorni fa</small></div><span className="pop-pill pop-pill--purple review-pop__sentiment">Misto</span></div>
+          <div className="review-stars-v071 review-stars-v071--green">★★★★☆</div>
+          <p>Ottima qualità, ma i tempi di attesa potrebbero migliorare.</p>
+          <div className="review-tags-v071"><span>Qualità</span><span>Attesa</span><span>Servizio</span></div>
+        </article>
+        <article className="review-pop review-pop-v071 review-pop-v071--social">
+          <div className="review-pop__head"><span className="channel-mark channel-mark--ig">IG</span><div className="review-pop__meta"><b>ale_93</b><small>Instagram · 5 giorni fa</small></div><span className="pop-pill pop-pill--lime review-pop__sentiment">Positivo</span></div>
+          <p>Servizio clienti davvero gentile! 👏</p>
+          <div className="review-pop__foot"><span>♥ 64</span><span>◯ 4</span></div>
         </article>
       </div>
-      <div className="collect-sticker"><strong>Tutto qui dentro.</strong><span>Una vista, fonti diverse.</span></div>
     </div>
   )
 }
 
 function AnalyzeScene({ offset }: { offset: number }) {
-  const bars = [45, 62, 54, 76, 68, 82, 59, 88, 72, 91, 84, 96]
+  const bars = [24, 67, 58, 48, 61, 76, 91]
   return (
-    <div className="scene analyze-scene-v07">
-      <div className="analysis-bento" style={{ transform: `translate3d(0, ${offset * -7}px, 0)` }}>
-        <article className="analysis-tile analysis-main-tile">
-          <div className="analysis-tile__head"><span className="ui-kicker">Sentiment live</span><span className="pop-pill">12.4k feedback</span></div>
-          <div className="analysis-ring-wrap"><div className="analysis-ring"><div className="analysis-ring__value"><strong>68%</strong><span>positivo</span></div></div><div className="analysis-ring-legend"><span><b>68%</b> positivo</span><span><b>21%</b> neutro</span><span><b>11%</b> negativo</span></div></div>
+    <div className="scene analyze-scene-v071">
+      <div className="analysis-bento-v071" style={{ transform: `translate3d(0, ${offset * -5}px, 0)` }}>
+        <article className="analysis-card-v071 analysis-card-v071--main">
+          <div className="analysis-card-v071__head"><span className="analysis-chip-v071">SENTIMENT</span><span>Ultimi 30 giorni</span></div>
+          <div className="analysis-donut-v071"><div><strong>32K</strong><span>feedback analizzati</span></div></div>
+          <div className="analysis-legend-v071"><span><i className="is-aqua" />Positivo <b>54%</b></span><span><i className="is-purple" />Neutro <b>27%</b></span><span><i className="is-orange" />Negativo <b>19%</b></span></div>
         </article>
-        <article className="analysis-tile analysis-trend-tile">
-          <div className="analysis-tile__head"><span className="ui-kicker">Volume analizzato</span><span className="pop-pill pop-pill--lime">+18% ↗</span></div>
-          <div className="trend-number">12.480<small>ultimi 30 giorni</small></div>
-          <div className="analysis-bars" aria-hidden="true">{bars.map((value, index) => <i className="analysis-bar" style={{ height: `${value}%`, animationDelay: `${index * .035}s` }} key={index} />)}</div>
+
+        <article className="analysis-card-v071 analysis-card-v071--lime">
+          <div className="analysis-arrow-v071">↗</div><strong>+3,51%</strong><span>sentiment positivo</span>
         </article>
-        <article className="analysis-tile analysis-topic-tile">
-          <div className="analysis-tile__head"><span className="ui-kicker">Temi caldi</span><span className="pop-pill pop-pill--purple">AI cluster</span></div>
-          <div className="topic-focus"><strong>Service</strong><div className="topic-row"><span>Service</span><i><em style={{ width: '88%' }} /></i><b>88</b></div><div className="topic-row"><span>Prodotto</span><i><em style={{ width: '68%' }} /></i><b>68</b></div><div className="topic-row"><span>Pricing</span><i><em style={{ width: '46%' }} /></i><b>46</b></div></div>
+
+        <article className="analysis-card-v071 analysis-card-v071--progress">
+          <span className="analysis-small-label-v071">Copertura analisi</span><strong>72,5%</strong><div className="analysis-progress-v071"><i /></div><small>+10,2% vs periodo precedente</small>
         </article>
-        <article className="analysis-tile analysis-source-tile">
-          <div className="analysis-tile__head"><span className="ui-kicker">Da dove arriva</span><span className="pop-pill pop-pill--orange">4 fonti</span></div>
-          <div className="source-bubbles"><span className="source-bubble source-bubble--lg"><b>41%</b><small>Review</small></span><span className="source-bubble source-bubble--md"><b>29%</b><small>Social</small></span><span className="source-bubble source-bubble--sm"><b>18%</b><small>Survey</small></span></div>
+
+        <article className="analysis-card-v071 analysis-card-v071--performance">
+          <div className="analysis-card-v071__head"><span className="analysis-chip-v071 analysis-chip-v071--orange">PERFORMANCE</span><span>30 giorni</span></div>
+          <strong className="analysis-performance-value-v071">+28%</strong>
+          <div className="analysis-bars-v071" aria-hidden="true">{bars.map((value, index) => <i style={{ height: `${value}%`, animationDelay: `${index * .045}s` }} key={index}><span>{index === bars.length - 1 ? '91%' : ''}</span></i>)}</div>
+        </article>
+
+        <article className="analysis-card-v071 analysis-card-v071--trend">
+          <div className="analysis-card-v071__head"><div><span className="analysis-small-label-v071">Trend temi positivi</span><strong>+12 pt</strong></div><span className="analysis-chip-v071 analysis-chip-v071--dark">12 MESI</span></div>
+          <svg viewBox="0 0 380 120" role="img" aria-label="Trend illustrativo dei temi positivi">
+            <path className="analysis-trend-grid-v071" d="M6 92 H374 M6 60 H374 M6 28 H374" />
+            <path className="analysis-trend-line-v071 analysis-trend-line-v071--ghost" d="M8 91 C45 85 58 70 94 72 S150 48 190 62 S245 49 280 56 S330 40 372 43" />
+            <path className="analysis-trend-line-v071" d="M8 99 C44 87 60 92 94 75 S148 80 190 57 S244 69 280 43 S330 48 372 22" />
+          </svg>
         </article>
       </div>
     </div>
@@ -106,10 +122,10 @@ function AnalyzeScene({ offset }: { offset: number }) {
 
 function UnderstandScene({ offset }: { offset: number }) {
   return (
-    <div className="scene understand-scene-v07" style={{ backgroundImage: `url(${understandPhoto})` }}>
-      <div className="understand-ui-layer" style={{ transform: `translate3d(0, ${offset * -10}px, 0)` }}>
-        <div className="insight-float"><span>✦ Senty ha trovato un pattern</span><strong>Le citazioni sul servizio crescono insieme al sentiment positivo.</strong></div>
-        <article className="insight-cluster-card">
+    <div className="scene understand-scene-v071" style={{ backgroundImage: `url(${understandPhoto})` }}>
+      <div className="understand-ui-layer" style={{ transform: `translate3d(0, ${offset * -9}px, 0)` }}>
+        <div className="insight-float insight-float-v071"><span>✦ Senty ha trovato un pattern</span><strong>Le citazioni sul servizio crescono insieme al sentiment positivo.</strong></div>
+        <article className="insight-cluster-card insight-cluster-card-v071">
           <div className="insight-cluster__top"><span className="ui-kicker">Cosa muove il sentiment</span><span className="pop-pill pop-pill--aqua">Pattern aggiornato</span></div>
           <div className="insight-cluster__title"><strong>Service è il driver #1</strong><b>+24</b></div>
           <div className="driver-pills"><div className="driver-pill"><span>Esperienza</span><b>+17 · stabile</b></div><div className="driver-pill"><span>Service</span><b>+24 · accelera</b></div><div className="driver-pill"><span>Prodotto</span><b>+11 · positivo</b></div><div className="driver-pill"><span>Pricing</span><b>-9 · da guardare</b></div></div>
@@ -121,26 +137,26 @@ function UnderstandScene({ offset }: { offset: number }) {
 
 function CompareScene({ offset }: { offset: number }) {
   return (
-    <div className="scene compare-scene-v07">
-      <div className="compare-wide-layout" style={{ transform: `translate3d(0, ${offset * -6}px, 0)` }}>
-        <div className="compare-wide-head">
+    <div className="scene compare-scene-v071">
+      <div className="compare-wide-layout compare-wide-layout-v071" style={{ transform: `translate3d(0, ${offset * -5}px, 0)` }}>
+        <div className="compare-wide-head compare-wide-head-v071">
           <div><span className="ui-kicker">Confronto competitivo</span><h4>Sentiment nel tempo</h4></div>
           <div className="compare-controls"><span className="compare-control">3 mesi</span><span className="compare-control is-active">12 mesi</span><span className="compare-control">24 mesi</span></div>
         </div>
-        <div className="compare-legend-v07"><span><i />Il tuo brand</span><span><i />Competitor A</span><span><i />Competitor B</span></div>
-        <div className="compare-chart-wrap">
-          <svg className="compare-chart-v07" viewBox="0 0 760 320" role="img" aria-label="Confronto illustrativo del sentiment tra brand e competitor">
-            <defs><linearGradient id="brandArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#2b3dfa" stopOpacity=".28" /><stop offset="1" stopColor="#2b3dfa" stopOpacity="0" /></linearGradient></defs>
+        <div className="compare-legend-v07 compare-legend-v071"><span><i />Il tuo brand</span><span><i />Competitor A</span><span><i />Competitor B</span></div>
+        <div className="compare-chart-wrap compare-chart-wrap-v071">
+          <svg className="compare-chart-v07 compare-chart-v071" viewBox="0 0 760 320" role="img" aria-label="Confronto illustrativo del sentiment tra brand e competitor">
+            <defs><linearGradient id="brandArea071" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#2b3dfa" stopOpacity=".30" /><stop offset="1" stopColor="#2b3dfa" stopOpacity="0" /></linearGradient></defs>
             <path className="grid" d="M20 55 H740 M20 120 H740 M20 185 H740 M20 250 H740" />
-            <path className="area" d="M22 238 C95 220 120 162 185 176 S292 225 360 144 S470 102 530 118 S646 80 738 58 L738 298 L22 298 Z" />
+            <path className="area area-v071" d="M22 238 C95 220 120 162 185 176 S292 225 360 144 S470 102 530 118 S646 80 738 58 L738 298 L22 298 Z" />
             <path className="brand-line" d="M22 238 C95 220 120 162 185 176 S292 225 360 144 S470 102 530 118 S646 80 738 58" />
             <path className="comp-a" d="M22 204 C92 194 128 208 192 176 S302 150 368 172 S470 190 536 154 S652 142 738 126" />
             <path className="comp-b" d="M22 254 C92 238 132 224 192 226 S300 196 370 210 S472 180 536 188 S650 160 738 172" />
-            <circle className="brand-dot" cx="738" cy="58" r="9" /><circle className="comp-dot" cx="738" cy="126" r="8" />
+            <circle className="brand-dot" cx="738" cy="58" r="10" /><circle className="comp-dot" cx="738" cy="126" r="8" />
           </svg>
-          <div className="compare-benchmark"><b>+12 pt</b><span>sopra benchmark</span></div>
+          <div className="compare-benchmark compare-benchmark-v071"><b>+12 pt</b><span>sopra benchmark</span></div>
         </div>
-        <div className="compare-axis-v07"><span>Ott</span><span>Dic</span><span>Feb</span><span>Apr</span><span>Giu</span><span>Ago</span><span>Oggi</span></div>
+        <div className="compare-axis-v07 compare-axis-v071"><span>Ott</span><span>Dic</span><span>Feb</span><span>Apr</span><span>Giu</span><span>Ago</span><span>Oggi</span></div>
       </div>
     </div>
   )
@@ -148,9 +164,9 @@ function CompareScene({ offset }: { offset: number }) {
 
 function ReturnScene({ offset }: { offset: number }) {
   return (
-    <div className="scene return-scene-v07" style={{ backgroundImage: `url(${returnPhoto})` }}>
-      <div className="return-ui-layer" style={{ transform: `translate3d(0, ${offset * -10}px, 0)` }}>
-        <article className="return-action-card">
+    <div className="scene return-scene-v071" style={{ backgroundImage: `url(${returnPhoto})` }}>
+      <div className="return-ui-layer return-ui-layer-v071" style={{ transform: `translate3d(0, ${offset * -9}px, 0)` }}>
+        <article className="return-action-card return-action-card-v071">
           <div className="return-action-card__head"><span className="ai-badge">✦ Senty AI</span><span className="pop-pill pop-pill--orange">Priorità alta</span></div>
           <h4>Il prezzo è il principale driver negativo nei nuovi clienti.</h4>
           <div className="next-actions"><div className="next-action"><i>1</i><span>Chiarisci il valore nei primi touchpoint</span><b>Marketing</b></div><div className="next-action"><i>2</i><span>Verifica le frizioni nel percorso di acquisto</span><b>CX</b></div><div className="next-action"><i>3</i><span>Condividi il trend con il team commerciale</span><b>Sales</b></div></div>
@@ -234,7 +250,7 @@ export default function App() {
   }
 
   return (
-    <div className="site-shell v05-shell v06-shell v07-shell">
+    <div className="site-shell v05-shell v06-shell v07-shell v071-shell">
       <header className={showNav ? 'floating-nav is-visible' : 'floating-nav'}>
         <a className="floating-brand" href="#top" aria-label="Senty home"><img src="/senty-logo.svg" alt="Senty" /></a>
         <nav aria-label="Navigazione principale"><a href="#method">Metodo</a><a href="#insight">Insight</a><a href="#features">Funzionalità</a></nav>
@@ -242,10 +258,16 @@ export default function App() {
       </header>
 
       <main>
-        <section className="hero v05-hero v06-hero v07-hero" id="hero" aria-labelledby="hero-title">
-          <div className="hero-panel" id="top">
-            <div className="hero-brand-lockup"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div>
-            <div className="hero-copy"><p className="eyebrow">Sentiment intelligence per brand</p><h1 id="hero-title">Capisci cosa sentono le persone. E cosa farne.</h1><p className="hero-intro">Senty raccoglie recensioni, commenti e feedback da più canali, li analizza con l’AI e li restituisce in insight chiari, comparabili e pronti per guidare le decisioni.</p><div id="demo"><DemoForm /></div><small>Demo guidata del prodotto e overview delle funzionalità.</small></div>
+        <section className="hero v05-hero v06-hero v07-hero v071-hero" id="hero" aria-labelledby="hero-title">
+          <div className="hero-panel hero-panel-v071" id="top">
+            <div className="hero-content-v071">
+              <div className="hero-brand-lockup"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div>
+              <div className="hero-copy"><p className="eyebrow">Sentiment intelligence per brand</p><h1 id="hero-title">Capisci cosa sentono le persone. E cosa farne.</h1><p className="hero-intro">Senty raccoglie recensioni, commenti e feedback da più canali, li analizza con l’AI e li restituisce in insight chiari, comparabili e pronti per guidare le decisioni.</p><div id="demo"><DemoForm /></div><small>Demo guidata del prodotto e overview delle funzionalità.</small></div>
+            </div>
+            <div className="hero-media-v071" style={{ backgroundImage: `url(${collectPhoto})` }} aria-hidden="true">
+              <div className="hero-media-card hero-media-card--top"><span>Feedback oggi</span><strong>12,4K</strong><small>4 fonti attive</small></div>
+              <div className="hero-media-card hero-media-card--bottom"><span>Sentiment positivo</span><strong>+18%</strong><small>vs periodo precedente</small></div>
+            </div>
           </div>
         </section>
 
@@ -279,7 +301,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><div className="footer-top"><div className="footer-brand"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div><div className="footer-cta"><h2>Vuoi capire meglio ciò che le persone sentono?</h2><DemoForm compact /></div></div><div className="footer-bottom"><span>SENTY-LP v0.7.0</span><span>Sentiment intelligence, resa semplice.</span></div></footer>
+      <footer className="footer"><div className="footer-top"><div className="footer-brand"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div><div className="footer-cta"><h2>Vuoi capire meglio ciò che le persone sentono?</h2><DemoForm compact /></div></div><div className="footer-bottom"><span>SENTY-LP v0.7.1</span><span>Sentiment intelligence, resa semplice.</span></div></footer>
     </div>
   )
 }
