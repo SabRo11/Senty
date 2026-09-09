@@ -2,25 +2,23 @@
 
 Landing page e ambiente di prototipazione front-end di Senty.
 
-**Versione corrente:** `SENTY-LP-v0.7.1`  
+**Versione corrente:** `SENTY-LP-v0.7.3`  
 **Demo live:** https://senty-sigma.vercel.app
 
 ## Stato corrente
 
-La `v0.7.1` chiude il rework dei primi moduli della landing: hero e Metodo sono stati riallineati alle reference condivise, mantenendo il sistema visuale Senty e la doppia interazione scroll/click.
+La `v0.7.3` consolida hero e Metodo sulla direzione approvata, usando i visual forniti come source of truth e riducendo al minimo le reinterpretazioni della UI.
 
-### Cosa cambia in v0.7.1
+### Cosa cambia in v0.7.3
 
-1. hero su pagina bianca, con gradiente contenuto interamente nel box rounded;
-2. hero a due colonne: copy in negativo + fotografia lifestyle con focus smartphone e due UI sintetiche;
-3. headline “Ascolta tutto. Capisci cosa conta.” mantiene il reveal on-scroll validato;
-4. typography del Metodo riportata a una scala più bold e leggibile;
-5. voci Raccogli / Analizza / Comprendi / Confronta / Restituisci cliccabili oltre che scroll-driven;
-6. Raccogli ricostruisce in HTML responsive la composizione fotografica + recensioni multicanale approvata;
-7. Analizza adotta una bentobox più bold, ispirata alla dashboard reference e tradotta nella palette Senty;
-8. Comprendi usa il crop fotografico sul gesto/tablet e mantiene la UI di pattern/driver in sovraimpressione;
-9. Confronta mantiene il grafico wide ma aumenta gerarchie, spessori e benchmark;
-10. Restituisci forza una singola fotografia di background senza tiling, con card operativa Senty AI in overlay.
+1. hero senza fotografia, con contenuti epigrafati al centro dentro un box più ampio;
+2. headline scandita su tre righe: “Capisci / cosa sentono le persone. / E cosa farne.”;
+3. gradiente confinato nel box hero, con linee geometriche leggere per dare profondità senza creare rumore;
+4. Metodo mantiene tipografia bold e doppia interazione scroll + click;
+5. Raccogli / Analizza / Comprendi / Confronta / Restituisci usano, nell’ordine, i cinque visual approvati e forniti;
+6. eliminati dal Metodo i visual costruiti nelle iterazioni precedenti;
+7. aggiunte microinterazioni leggere: ingresso con settle, glint controllato e micro-zoom hover sul visual attivo;
+8. comportamento responsive e reduced-motion preservati.
 
 ## UI system
 
@@ -29,9 +27,8 @@ La `v0.7.1` chiude il rework dei primi moduli della landing: hero e Metodo sono 
 - Blue Orchid `#2B3DFA` e scala tonale Senty;
 - navy `#171D70` / `#0D103A`;
 - radius generosi e card morbide;
-- fotografia fresca, con enfasi su gesti, device e props più che sui volti;
-- accenti lime, aqua, purple e orange come layer pop;
-- motion concentrato su transizioni narrative e dati.
+- visual fotografici/UI usati come elementi narrativi dominanti;
+- motion discreto, subordinato alla leggibilità.
 
 ## Stack
 
