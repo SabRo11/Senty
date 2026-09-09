@@ -1,5 +1,34 @@
 # SENTY-LP — Iterazioni
 
+## v0.7.1 — First modules closure
+
+### Obiettivo
+Chiudere hero e Metodo correggendo i bug UI emersi in v0.7.0 e riallineando art direction, scala tipografica e visual alle reference condivise.
+
+### Hero
+- sfondo pagina bianco;
+- gradiente contenuto interamente nel box hero con radius Senty;
+- copy e logo in negativo;
+- layout a due colonne ispirato alla reference Klarna;
+- fotografia lifestyle con focus su smartphone/gesto e due KPI UI sintetici;
+- form demo mantenuto come elemento operativo principale.
+
+### Intro metodo
+- headline “Ascolta tutto. Capisci cosa conta.” invariata;
+- reveal on-scroll confermato.
+
+### Metodo
+- ripristinata una scala tipografica più grande e bold per label, titoli e descrizioni;
+- navigazione desktop sia scroll-driven sia click-driven;
+- Raccogli: composizione fotografica con recensioni Instagram / Google / Tripadvisor ricostruita come UI responsive;
+- Analizza: bentobox bold con grande donut, KPI, progress, performance bar chart e trend chart; palette Senty + lime/aqua/purple/orange;
+- Comprendi: fotografia fornita con crop sul gesto/tablet e UI pattern/driver in sovraimpressione;
+- Confronta: grafico wide confermato, con linee, gerarchie e benchmark più forti;
+- Restituisci: singola immagine di background con `cover/no-repeat` e card Senty AI operativa in overlay.
+
+### Nota implementativa
+La composizione di Raccogli viene mantenuta in HTML/CSS anziché come immagine appiattita, così da conservare leggibilità, responsive e qualità delle UI su viewport differenti.
+
 ## v0.7.0 — Hero panel + richer method art direction
 
 ### Obiettivo
