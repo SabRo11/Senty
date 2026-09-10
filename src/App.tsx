@@ -1,4 +1,5 @@
 import { useEffect, useState, type CSSProperties, type ReactNode } from 'react'
+import HeroVisualV077 from './HeroVisualV077'
 
 const clients = [
   { name: 'Leroy Merlin', slug: 'leroy', src: 'https://www.leroymerlin.it/lmit-site/6.66.0/static/logos/adeo-brands/leroy-merlin.svg' },
@@ -206,7 +207,7 @@ export default function App() {
   }
 
   return (
-    <div className="site-shell v05-shell v06-shell v07-shell v071-shell v076-shell">
+    <div className="site-shell v05-shell v06-shell v07-shell v071-shell v076-shell v077-shell">
       <header className={showNav ? 'floating-nav is-visible' : 'floating-nav'}>
         <a className="floating-brand" href="#top" aria-label="Senty home"><img src="/senty-logo.svg" alt="Senty" /></a>
         <nav aria-label="Navigazione principale"><a href="#method">Metodo</a><a href="#insight">Insight</a><a href="#features">Funzionalità</a></nav>
@@ -218,7 +219,10 @@ export default function App() {
           <div className="hero-panel hero-panel-v071" id="top">
             <div className="hero-content-v071">
               <div className="hero-brand-lockup"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div>
-              <div className="hero-copy"><p className="eyebrow">Sentiment intelligence per brand</p><h1 id="hero-title">Capisci cosa sentono le persone. E cosa farne.</h1><p className="hero-intro">Senty raccoglie recensioni, commenti e feedback da più canali, li analizza con l’AI e li restituisce in insight chiari, comparabili e pronti per guidare le decisioni.</p><div id="demo"><DemoForm /></div><small>Demo guidata del prodotto e overview delle funzionalità.</small></div>
+              <div className="hero-main-v077">
+                <div className="hero-copy"><p className="eyebrow">Sentiment intelligence per brand</p><h1 id="hero-title">Capisci cosa sentono le persone. E cosa farne.</h1><p className="hero-intro">Senty raccoglie recensioni, commenti e feedback da più canali, li analizza con l’AI e li restituisce in insight chiari, comparabili e pronti per guidare le decisioni.</p><div id="demo"><DemoForm /></div><small>Demo guidata del prodotto e overview delle funzionalità.</small></div>
+                <HeroVisualV077 />
+              </div>
             </div>
           </div>
         </section>
@@ -253,7 +257,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><div className="footer-top"><div className="footer-brand"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div><div className="footer-cta"><h2>Vuoi capire meglio ciò che le persone sentono?</h2><DemoForm compact /></div></div><div className="footer-bottom"><span>SENTY-LP v0.7.6</span><span>Sentiment intelligence, resa semplice.</span></div></footer>
+      <footer className="footer"><div className="footer-top"><div className="footer-brand"><img src="/senty-logo.svg" alt="Senty" /><span>Powered by Havas</span></div><div className="footer-cta"><h2>Vuoi capire meglio ciò che le persone sentono?</h2><DemoForm compact /></div></div><div className="footer-bottom"><span>SENTY-LP v0.7.7</span><span>Sentiment intelligence, resa semplice.</span></div></footer>
     </div>
   )
 }
