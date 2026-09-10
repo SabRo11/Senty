@@ -1,0 +1,11 @@
+.v076-shell .method-public-image-scene {
+  background: #fff !important;
+}
+
+.v076-shell .method-public-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
