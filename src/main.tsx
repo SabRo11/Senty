@@ -13,6 +13,9 @@ import './v075.css'
 import './v076.css'
 import './v076-assets.css'
 import './v077.css'
+import './v078.css'
+
+document.documentElement.classList.add('v078-shell')
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
