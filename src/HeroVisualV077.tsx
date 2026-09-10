@@ -1,28 +1,37 @@
-const signals = [
-  { source: 'Google', quote: 'Prodotto ottimo, consegna lenta.', sentiment: 'Misto', tone: 'neutral' },
-  { source: 'Instagram', quote: 'Esperienza super intuitiva ✨', sentiment: 'Positivo', tone: 'positive' },
-  { source: 'Survey', quote: 'Vorrei tempi di risposta più rapidi.', sentiment: 'Negativo', tone: 'negative' },
-] as const
-
 export default function HeroVisualV077() {
   return (
-    <div className="hero-visual-v077" aria-label="Esempio di segnali trasformati in insight da Senty">
-      <div className="hero-orbit-v077" aria-hidden="true" />
-      <div className="hero-signal-stack-v077">
-        {signals.map((signal, index) => (
-          <article className={`hero-signal-card-v077 hero-signal-card-v077--${index + 1}`} key={signal.quote}>
-            <div className="hero-signal-card-v077__topline">
-              <span>{signal.source}</span>
-              <span className={`hero-sentiment-v077 is-${signal.tone}`}>{signal.sentiment}</span>
-            </div>
-            <p>{signal.quote}</p>
-          </article>
-        ))}
-      </div>
-      <article className="hero-insight-card-v077">
-        <span className="hero-insight-card-v077__badge">◆ Senty ha trovato un pattern</span>
-        <h2>Il servizio sta diventando il principale driver del sentiment.</h2>
-        <p>+18% menzioni nelle ultime 4 settimane</p>
+    <div className="hero-visual-v078" aria-label="Esempio di feedback trasformati in insight da Senty">
+      <article className="hero-card-v078 hero-card-v078--google">
+        <div className="hero-card-v078__head">
+          <span className="hero-source-v078 hero-source-v078--google">G</span>
+          <div><strong>Marcella T.</strong><small>2 settimane fa</small></div>
+          <span className="hero-pill-v078 is-mixed">Misto</span>
+        </div>
+        <div className="hero-stars-v078 is-orange">★★★<span>★★</span></div>
+        <p>Prodotto ottimo, consegna lenta</p>
+      </article>
+
+      <article className="hero-card-v078 hero-card-v078--insight">
+        <span className="hero-insight-label-v078">◆&nbsp; Senty ha trovato un pattern</span>
+        <h2>Il servizio sta diventando<br />il principale driver del<br />sentiment.</h2>
+      </article>
+
+      <article className="hero-card-v078 hero-card-v078--priority">
+        <div className="hero-card-v078__priority-head">
+          <span className="hero-pill-v078 is-priority">Priorità alta</span>
+          <small>Customer Care</small>
+        </div>
+        <p>Necessità di velocizzare<br />i tempi di risposta</p>
+      </article>
+
+      <article className="hero-card-v078 hero-card-v078--review">
+        <div className="hero-card-v078__head">
+          <span className="hero-source-v078 hero-source-v078--review">◎</span>
+          <div><strong>Cristina G.</strong><small>2 giorni fa</small></div>
+          <span className="hero-pill-v078 is-positive">Positivo</span>
+        </div>
+        <div className="hero-stars-v078 is-green">★★★★<span>★</span></div>
+        <p>Esperienza positiva ✨</p>
       </article>
     </div>
   )
