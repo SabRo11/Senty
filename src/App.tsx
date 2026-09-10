@@ -132,9 +132,29 @@ function ReturnScene() {
   )
 }
 
+function PublicMethodScene({ index, fallback }: { index: number; fallback: ReactNode }) {
+  const [assetAvailable, setAssetAvailable] = useState(true)
+  const assetSrc = `/${moments[index].label.toLocaleLowerCase('it-IT')}.jpg`
+
+  if (!assetAvailable) return <>{fallback}</>
+
+  return (
+    <div className="scene method-public-image-scene">
+      <img
+        className="method-public-image"
+        src={assetSrc}
+        alt={`Visual ${moments[index].label}`}
+        loading="eager"
+        decoding="async"
+        onError={() => setAssetAvailable(false)}
+      />
+    </div>
+  )
+}
+
 function MomentVisual({ active }: { active: number }) {
-  const scenes = [<CollectScene />, <AnalyzeScene />, <UnderstandScene />, <CompareScene />, <ReturnScene />]
-  return <div className="moment-canvas" aria-live="polite">{scenes.map((scene, index) => <div className={active === index ? 'moment-panel is-active' : 'moment-panel'} key={index}>{scene}</div>)}</div>
+  const fallbacks = [<CollectScene />, <AnalyzeScene />, <UnderstandScene />, <CompareScene />, <ReturnScene />]
+  return <div className="moment-canvas" aria-live="polite">{fallbacks.map((fallback, index) => <div className={active === index ? 'moment-panel is-active' : 'moment-panel'} key={index}><PublicMethodScene index={index} fallback={fallback} /></div>)}</div>
 }
 
 const insightItems = [
