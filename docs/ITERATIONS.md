@@ -1,5 +1,30 @@
 # SENTY-LP — Iterazioni
 
+## v0.7.6 — Native UI sharpness + hero spacing
+
+### Obiettivo
+Chiudere definitivamente il problema di nitidezza dei visual del Metodo e riallineare il visore hero alla reference approvata, senza sacrificare il responsive.
+
+### Hero
+- visore più stretto rispetto alla viewport, con margine bianco esterno coerente alla reference;
+- altezza mantenuta sotto la viewport per invitare allo scroll;
+- nuova scansione verticale di logo, eyebrow, headline, intro e form;
+- pattern geometrico alleggerito per non competere con il copy;
+- form e microcopy ricollocati con maggiore respiro verticale.
+
+### Metodo
+- rimossi i composit rasterizzati `method-*.webp` che causavano testo e UI poco nitidi;
+- Raccogli, Analizza, Comprendi, Confronta e Restituisci ricostruiti come UI native HTML/CSS/SVG aderenti alle reference approvate;
+- fotografia mantenuta solo come livello di sfondo nei moduli Raccogli, Comprendi e Restituisci;
+- card, testi, pill, chart e indicatori restano vettoriali/browser-rendered e quindi nitidi su desktop, retina e mobile;
+- eliminati scale, filter e transform applicati ai frame rasterizzati;
+- rapporto 7:6 mantenuto su desktop e mobile per impedire crop della UI.
+
+### Cleanup
+- rimossi dal repository i cinque vecchi asset flattenati `method-*.webp`;
+- versione applicazione, meta version e footer aggiornati a 0.7.6;
+- nuova stylesheet `v076.css` caricata come override finale.
+
 ## v0.7.1 — First modules closure
 
 ### Obiettivo
